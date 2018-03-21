@@ -17,12 +17,7 @@ import sentiment from 'sentiment';
 // var r2 = sentiment('Cats are totally amazing!');
 // console.dir(r2);        // Score: 4, Comparative: 1
 
-
-const Home = props => (
-  <div>
-    
-  </div>
-);
+const Home = props => <div />;
 
 const mapStateToProps = state => ({
   count: state.counter.count,

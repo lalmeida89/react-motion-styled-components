@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "firebase": "^4.11.0",
+    "lodash.range": "^3.2.0",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",
     "react-dom": "^16.2.0",
+    "react-motion": "^0.5.2",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -20,7 +22,8 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0",
-    "sentiment": "^4.2.0"
+    "sentiment": "^4.2.0",
+    "styled-components": "^3.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,9 +34,6 @@
   },
   "homepage": "https://cra-redux-router-thunk.herokuapp.com",
   "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   }
 }
