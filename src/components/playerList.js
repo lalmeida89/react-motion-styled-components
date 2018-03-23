@@ -23,7 +23,7 @@ export class PlayerList extends React.Component {
 }
 
 export const mapStateToProps = (state, props) => ({
-  playerNames: state.players.map(Players => Players.lname),
+  playerNames: [],
   loading: state.loading,
   error: state.error
 });

@@ -15,14 +15,21 @@ export const fetchPlayersError = error => ({
   error
 });
 
+var FFNerd = require('fantasy-football-nerd');
+var ff = new FFNerd({ api_key: 'd4dhbjjcn5rp' });
+
+ff.teams(function(teams) {
+  console.log('Got teams', teams);
+});
+
 export const fetchPlayers = () => {
   return dispatch => {
     let url =
-      'https://www.fantasyfootballnerd.com/service/players/json/d4dhbjjcn5rp/QB/';
+      'https://www.fantasyfootballnerd.com/service/nfl-teams/json/test/';
     fetch(url, {
       method: 'GET'
     })
-      .then(res => res.json())
+      .then(res => res.text())
       .catch(error => {
         console.log('error', error);
         dispatch(fetchPlayersError(error));

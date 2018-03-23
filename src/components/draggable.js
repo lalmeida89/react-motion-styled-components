@@ -2,6 +2,7 @@ import React from 'react';
 import { Motion, spring } from 'react-motion';
 import range from 'lodash.range';
 import './draggable.css';
+import { Players } from './playerListQB';
 
 function reinsert(arr, from, to) {
   const _arr = arr.slice(0);
@@ -16,7 +17,7 @@ function clamp(n, min, max) {
 }
 
 const springConfig = { stiffness: 300, damping: 50 };
-const itemsCount = 4;
+const itemsCount = Players.length;
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -116,6 +117,7 @@ export default class Demo extends React.Component {
                     WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
                     zIndex: i === originalPosOfLastPressed ? 99 : i
                   }}>
+                  bob
                   {order.indexOf(i) + 1}
                 </div>
               )}

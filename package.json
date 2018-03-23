@@ -9,6 +9,7 @@
     "react-scripts": "^1.0.17"
   },
   "dependencies": {
+    "fantasy-football-nerd": "^1.0.0",
     "firebase": "^4.11.0",
     "lodash.range": "^3.2.0",
     "react": "^16.2.0",
