@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchSentiment } from '../modules/counter';
 import Autosugg from './autosuggest.js';
 import Draggable from './draggable';
+import PlayerList from './playerList';
 
 import sentiment from 'sentiment';
 import { Button } from './button';
@@ -30,6 +31,7 @@ const Home = props => (
     <Draggable />
     <Button>Normal Button</Button>
     <Button primary>Primary Button</Button>
+    <PlayerList />
   </div>
 );
 
