@@ -25,11 +25,11 @@ ff.teams(function(teams) {
 export const fetchPlayers = () => {
   return dispatch => {
     let url =
-      'https://www.fantasyfootballnerd.com/service/nfl-teams/json/test/';
+      'https://www.fantasyfootballnerd.com/service/players/json/d4dhbjjcn5rp/wr';
     fetch(url, {
       method: 'GET'
     })
-      .then(res => res.text())
+      .then(res => res.json())
       .catch(error => {
         console.log('error', error);
         dispatch(fetchPlayersError(error));

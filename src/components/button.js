@@ -8,6 +8,9 @@ export const Button = styled.button`
   background: transparent;
   color: palevioletred;
   border: 2px solid palevioletred;
+  display: block;
+  margin: auto;
+  width: 150px;
 
   ${props =>
     props.primary &&

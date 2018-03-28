@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { fetchSentiment } from '../modules/counter';
 import Autosugg from './autosuggest.js';
 import Draggable from './draggable';
-import PlayerList from './playerList';
+//import PlayerList from './playerList';
 
 import sentiment from 'sentiment';
 import { Button } from './button';
@@ -25,13 +25,13 @@ const DynamicRender = props => {
 
 const Home = props => (
   <div>
-    <Autosugg fetchSentiment={props.fetchSentiment} />
+    {/*}<Autosugg fetchSentiment={props.fetchSentiment} />
     <p>{props.sentimentValue}</p>
-    <DynamicRender sentimentValue={props.sentimentValue} />
+    <DynamicRender sentimentValue={props.sentimentValue} />*/}
     <Draggable />
-    <Button>Normal Button</Button>
+    {/*}<Button>Normal Button</Button>
     <Button primary>Primary Button</Button>
-    <PlayerList />
+    <PlayerList />*/}
   </div>
 );
 

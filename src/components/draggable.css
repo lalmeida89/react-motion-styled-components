@@ -21,12 +21,12 @@
   -webkit-align-items: center;
 }
 .demo8 {
-  width: 320px;
+  width: 100vw;
   height: 400px;
 }
 .demo8-item {
   position: absolute;
-  width: 320px;
+  width: 100vw;
   height: 90px;
   overflow: visible;
   pointer-events: auto;
@@ -49,4 +49,12 @@
   padding: 10px;
   top: 0;
   left: 0;
+}
+
+.correct {
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
 }
