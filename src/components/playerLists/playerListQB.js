@@ -7,7 +7,8 @@ export const playersQB = [
       { displayName: 'Jay Cutler', td: 19 },
       { displayName: 'Josh McCown', td: 18 },
       { displayName: 'Aaron Rodgers', td: 16 }
-    ]
+    ],
+    question: 'Which of these QBs had the most tds?'
   },
 
   {
@@ -18,7 +19,8 @@ export const playersQB = [
       { displayName: 'Dak Prescott', ypc: 6.26 },
       { displayName: 'Russel Wilson', ypc: 6.17 },
       { displayName: 'Cam Newton', ypc: 5.42 }
-    ]
+    ],
+    question: 'Which of these QBs had the highest yards per carry?'
   },
 
   {
@@ -29,7 +31,8 @@ export const playersQB = [
       { displayName: 'Matt Ryan', QBrating: 91.4 },
       { displayName: 'Dak Prescott', QBrating: 86.6 },
       { displayName: 'Derek Carr', QBrating: 86.4 }
-    ]
+    ],
+    question: 'Which of these QBs had the highest QB rating?'
   },
 
   {

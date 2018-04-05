@@ -56,7 +56,14 @@ export default class Demo extends React.Component {
       order: range(itemsCount),
       displayPlayers: [],
       playerScore: 0,
-      gameIndex: 0
+      gameIndex: 0,
+      gameType: 'start game',
+      question: '',
+      timer: null,
+      counter: 15,
+      loading: false,
+      message: '',
+      gameContainer: null
     };
   }
 
@@ -66,7 +73,23 @@ export default class Demo extends React.Component {
     window.addEventListener('touchend', this.handleMouseUp);
     window.addEventListener('mousemove', this.handleMouseMove);
     window.addEventListener('mouseup', this.handleMouseUp);
+    let timer = setInterval(this.tick, 1000);
+    this.setState({ timer });
   }
+
+  componentWillUnmount() {
+    this.clearInterval(this.state.timer);
+  }
+
+  tick = () => {
+    if (this.state.counter == 0) {
+      //console.log('something else as well')
+      return this.timeUp();
+    }
+    this.setState({
+      counter: this.state.counter - 1
+    });
+  };
 
   handleTouchStart = (key, pressLocation, e) => {
     this.handleMouseDown(key, pressLocation, e.touches[0]);
@@ -88,7 +111,7 @@ export default class Demo extends React.Component {
 
   //test to change the order of arrays
   random = () => {
-    console.log('apple', this);
+    //console.log('apple', this);
     //let shuffledPlayers = shuffle(playersQBYPC);
     this.setState({
       order: [4, 3, 2, 1, 0]
@@ -96,48 +119,48 @@ export default class Demo extends React.Component {
     });
   };
 
-  //handles rendering the qb td list
-  qbTdGame = () => {
-    //console.log(players);
-    let sortedPlayers = sortByKey(playersQB.QBtd, 'td');
-    let shuffledPlayers = shuffle(playersQB.QBtd);
-    //console.log(sortedPlayers);
-    this.setState({
-      //correctOrder: sortedPlayers,
-      displayPlayers: shuffledPlayers
-    });
+  setGame = (gameContainer, gameName) => {
+    this.setState(
+      {
+        gameContainer: gameContainer,
+        gameName: gameName
+      },
+      function() {
+        this.qbGame();
+      }
+    );
   };
 
-  //handles rendering the ypc list
   qbGame = () => {
     let index = this.state.gameIndex;
-    console.log(index);
-    console.log(playersQB[index].players);
-    let sortedPlayers = sortByKey(playersQB[index].players, 'ypc');
+    let gameContainer = this.state.gameContainer;
+    //console.log(index);
+    //console.log(playersQB[index].players);
+    //console.log(playersQB[index].gameType);
+    console.log(typeof gameContainer, gameContainer);
+    let sortedPlayers = sortByKey(gameContainer[index].players);
     sortedPlayers.forEach((p, i) => {
       p['rank'] = i;
     });
-    let shuffledPlayers = shuffle(playersQB[index].players);
-    //console.log(sortedPlayers);
-    this.setState({
-      //correctOrder: sortedPlayers,
-      displayPlayers: sortedPlayers
-    });
-  };
-
-  //handles qb rating list
-  qbRateGame = () => {
-    //console.log(playersQBrate);
-    let sortedPlayers = sortByKey(playersQB.QBrate, 'QBrating');
-    sortedPlayers.forEach((p, i) => {
-      p['rank'] = i;
-    });
-    let shuffledPlayers = shuffle(playersQB.QBrate);
-    //console.log(sortedPlayers);
-    this.setState({
-      //correctOrder : sortedPlayers,
-      displayPlayers: shuffledPlayers
-    });
+    let shuffledPlayers = shuffle(gameContainer[index].players);
+    ////console.log(sortedPlayers);
+    this.setState(
+      {
+        gameType: gameContainer[index].gameType,
+        question: gameContainer[index].question,
+        displayPlayers: sortedPlayers,
+        loading: false,
+        counter: 15
+      },
+      function() {
+        //console.log(this.state);
+        setTimeout(() => {
+          this.setState({
+            order: shuffle(this.state.order)
+          });
+        }, 0);
+      }
+    );
   };
 
   //handles clicking and dragging of the list elements
@@ -171,46 +194,54 @@ export default class Demo extends React.Component {
     this.setState({ isPressed: false, topDeltaY: 0 });
   };
 
-  //checks user answers vs the correct answers
-  isCorrect = newOrder => {
-    console.log(this.state.displayPlayers, newOrder);
-    for (let i = 0; i < newOrder.length; i++) {
-      if (this.state.displayPlayers[newOrder[i]].rank !== i) {
-        console.log('loser');
-        return;
-      }
-    }
-    console.log('winner');
+  timeUp = () => {
     let gameIndex = Number(this.state.gameIndex);
     gameIndex++;
-    console.log(typeof this.state.gameIndex);
-    console.log(gameIndex);
+    //console.log(this.state.counter);
     this.setState(
       {
-        gameIndex: gameIndex
+        loading: true,
+        message: 'you lost',
+        gameIndex: gameIndex,
+        counter: 15
       },
       function() {
-        console.log(this.state);
-        this.qbGame();
+        //console.log(this.state);
+        setTimeout(() => {
+          this.qbGame();
+        }, 1000);
       }
     );
   };
 
-  winner = () => {
-    console.log('apple', this);
-    let shuffledPlayers = shuffle(playersQB.QBypc);
-    this.setState({
-      //order: [4, 3, 2, 1, 0],
-      displayPlayers: shuffledPlayers
-    });
-  };
-
-  submit = () => {
-    //console.log(this);
-    let sortedPlayers = sortByKey(playersQB.QBypc, 'ypc');
-    //console.log(sortedPlayers);
-    //console.log(this.state.order);
-    //console.log(this.state.playerScore);
+  //checks user answers vs the correct answers
+  isCorrect = newOrder => {
+    //console.log(this.state.displayPlayers, newOrder);
+    for (let i = 0; i < newOrder.length; i++) {
+      if (this.state.displayPlayers[newOrder[i]].rank !== i) {
+        //console.log('loser');
+        return;
+      }
+    }
+    //console.log('winner');
+    let gameIndex = Number(this.state.gameIndex);
+    gameIndex++;
+    //console.log(typeof this.state.gameIndex);
+    //console.log(gameIndex);
+    this.setState(
+      {
+        gameIndex: gameIndex,
+        loading: true,
+        message: 'you are a winner',
+        counter: 15
+      },
+      function() {
+        //console.log(this.state);
+        setTimeout(() => {
+          this.qbGame();
+        }, 1000);
+      }
+    );
   };
 
   render() {
@@ -228,59 +259,78 @@ export default class Demo extends React.Component {
       test.classList.remove("gold");
     });*/
 
+    const loading = (
+      <div>
+        <div>{this.state.message}</div>Loading{'...'.substr(
+          0,
+          this.state.counter % 3 + 1
+        )}
+      </div>
+    );
+
     return (
       <div id="test" className="demo8">
-        <Button onClick={() => this.random()}> click </Button>
-        <Button id="ypcGameStyle" onClick={this.qbGame}>
+        {this.state.counter}
+        <Button onClick={this.random}> click </Button>
+        <Button
+          className={this.state.gameName == 'playersQB' ? 'active' : 'inactive'}
+          onClick={() => this.setGame(playersQB, 'playersQB')}>
           {' '}
-          qb game
+          playersQB
         </Button>
-        {/*}<Button onClick = {this.qbRateGame}> qb rate game</Button>
-        <Button onClick = {() => sortByKey(players, 'td')}> Get the answer for td </Button>
-        <Button onClick = {() => sortByKey(playersQBYPC, 'ypc')}> Get the answer for ypc </Button>*/}
-        {/*}<Button onClick = {() => sortByKey(playersQBrate, 'QBrating')}> Get the answer for QB rating </Button>*/}
-        <Button onClick={this.submit}> submit </Button>
-
-        {this.state.displayPlayers.map((player, i) => {
-          const style =
-            originalPosOfLastPressed === i && isPressed
-              ? {
-                  scale: spring(1.1, springConfig),
-                  shadow: spring(16, springConfig),
-                  y: mouseY
-                }
-              : {
-                  scale: spring(1, springConfig),
-                  shadow: spring(1, springConfig),
-                  y: spring(order.indexOf(i) * 100, springConfig)
-                };
-          return (
-            <Motion style={style} key={i}>
-              {({ scale, shadow, y }) => (
-                <div
-                  onMouseDown={this.handleMouseDown.bind(null, i, y)}
-                  onTouchStart={this.handleTouchStart.bind(null, i, y)}
-                  className={
-                    order.indexOf(i) == player.rank
-                      ? 'correct demo8-item '
-                      : 'incorrect demo8-item'
-                  }
-                  style={{
-                    boxShadow: `rgba(0, 0, 0, 0.2) 0px ${shadow}px ${2 *
-                      shadow}px 0px`,
-                    transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
-                    WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
-                    zIndex: i === originalPosOfLastPressed ? 99 : i
-                  }}>
-                  {order.indexOf(i)}
-                  {order.indexOf(i) == player.rank ? 'correct' : 'incorrect'} :
-                  {order.indexOf(i) == player.rank ? null : (complete = false)}
-                  {player.displayName}
-                </div>
-              )}
-            </Motion>
-          );
-        })}
+        <Button onClick={() => this.setGame(playersWR, 'playersWR')}>
+          {' '}
+          playersWR
+        </Button>
+        {this.state.gameType}
+        {this.state.question}
+        {this.state.loading
+          ? loading
+          : this.state.displayPlayers.map((player, i) => {
+              const style =
+                originalPosOfLastPressed === i && isPressed
+                  ? {
+                      scale: spring(1.1, springConfig),
+                      shadow: spring(16, springConfig),
+                      y: mouseY
+                    }
+                  : {
+                      scale: spring(1, springConfig),
+                      shadow: spring(1, springConfig),
+                      y: spring(order.indexOf(i) * 100, springConfig)
+                    };
+              return (
+                <Motion style={style} key={i}>
+                  {({ scale, shadow, y }) => (
+                    <div
+                      onMouseDown={this.handleMouseDown.bind(null, i, y)}
+                      onTouchStart={this.handleTouchStart.bind(null, i, y)}
+                      className={
+                        order.indexOf(i) == player.rank
+                          ? 'correct demo8-item '
+                          : 'incorrect demo8-item'
+                      }
+                      style={{
+                        boxShadow: `rgba(0, 0, 0, 0.2) 0px ${shadow}px ${2 *
+                          shadow}px 0px`,
+                        transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
+                        WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
+                        zIndex: i === originalPosOfLastPressed ? 99 : i
+                      }}>
+                      {order.indexOf(i)}
+                      {order.indexOf(i) == player.rank
+                        ? 'correct'
+                        : 'incorrect'}{' '}
+                      :
+                      {order.indexOf(i) == player.rank
+                        ? null
+                        : (complete = false)}
+                      {player.displayName}
+                    </div>
+                  )}
+                </Motion>
+              );
+            })}
       </div>
     );
   }

@@ -62,3 +62,7 @@
 .gold {
   background: gold !important;
 }
+
+.active {
+  background-color: cyan;
+}

@@ -1,16 +1,19 @@
 export const playersWR = [
   {
-    WRtargets: [
+    gameType: 'WRtargets',
+    players: [
       { displayName: 'Keenan Allen', targets: 159 },
       { displayName: 'Julio Jones', targets: 149 },
       { displayName: 'AJ Green', targets: 144 },
       { displayName: 'Adam Thielen', targets: 143 },
       { displayName: 'Mike Evans', targets: 135 }
-    ]
+    ],
+    question: 'which of these wideouts had the most targets'
   },
 
   {
-    WRreceptions: [
+    gameType: 'WRreceptions',
+    players: [
       { displayName: 'Jarvis Landry', receptions: 112 },
       { displayName: 'Larry Fitzgerald', receptions: 109 },
       { displayName: 'Michael Thomas', receptions: 104 },
@@ -20,7 +23,8 @@ export const playersWR = [
   },
 
   {
-    WRreceivingYards: [
+    gameType: 'WRreceivingYards',
+    players: [
       { displayName: 'Juju Smith-Schuster', recYards: 917 },
       { displayName: 'Cooper Kupp', recYards: 869 },
       { displayName: 'Stefon Diggs', recYards: 849 },
@@ -30,7 +34,8 @@ export const playersWR = [
   },
 
   {
-    WRyardsPerReception: [
+    gameType: 'WRyardsPerReception',
+    players: [
       { displayName: 'Adam Thielen', ypr: 14.02 },
       { displayName: 'Stefon Diggs', ypr: 13.27 },
       { displayName: 'Doug Baldwin', ypr: 13.21 },
@@ -40,7 +45,8 @@ export const playersWR = [
   },
 
   {
-    WRtd: [
+    gameType: 'WRtd',
+    players: [
       { displayName: 'Marvin Jones', td: 9 },
       { displayName: 'AJ Green', td: 8 },
       { displayName: 'Brandin Cooks', td: 7 },
@@ -50,7 +56,8 @@ export const playersWR = [
   },
 
   {
-    WRfantasyPts: [
+    gameType: 'WRfantasyPts',
+    players: [
       { displayName: 'Robby Anderson', ffpts: 128 },
       { displayName: 'Mike Evans', ffpts: 124 },
       { displayName: 'T.Y. Hilton', ffpts: 112 },
