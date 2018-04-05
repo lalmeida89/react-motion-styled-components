@@ -1,4 +1,4 @@
-export const FETCH_PLAYERS_REQUEST = 'FETCH_Players_REQUEST';
+/*export const FETCH_PLAYERS_REQUEST = 'FETCH_Players_REQUEST';
 export const fetchPlayersRequest = () => ({
   type: FETCH_PLAYERS_REQUEST
 });
@@ -40,3 +40,4 @@ export const fetchPlayers = () => {
       });
   };
 };
+*/

@@ -1,4 +1,4 @@
-import {
+/*import {
   FETCH_PLAYERS_SUCCESS,
   FETCH_PLAYERS_REQUEST,
   FETCH_PLAYERS_ERROR
@@ -34,3 +34,4 @@ export default (state = initialState, action) => {
   }
   return state;
 };
+*/

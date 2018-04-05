@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchPlayers } from '../modules/fetchPlayers';
@@ -28,4 +28,4 @@ export const mapStateToProps = (state, props) => ({
   error: state.error
 });
 
-export default connect(mapStateToProps)(PlayerList);
+export default connect(mapStateToProps)(PlayerList);*/

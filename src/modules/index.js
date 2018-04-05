@@ -5,6 +5,5 @@ import playersFetchReducer from './playersFetchReducer';
 
 export default combineReducers({
   router: routerReducer,
-  counter,
-  playersFetchReducer
+  counter
 });

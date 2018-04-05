@@ -2,7 +2,10 @@ import React from 'react';
 import { Motion, spring } from 'react-motion';
 import range from 'lodash.range';
 import './draggable.css';
-import { players, playersQBYPC, playersQBrate } from './playerListQB';
+import { playersQB } from './playerLists/playerListQB';
+import { playersRB } from './playerLists/playerListRB';
+import { playersWR } from './playerLists/playerListWR';
+import { playersTE } from './playerLists/playerListTE';
 import { Button } from './button';
 
 function reinsert(arr, from, to) {
@@ -40,7 +43,7 @@ function clamp(n, min, max) {
 }
 
 const springConfig = { stiffness: 300, damping: 50 };
-const itemsCount = players.length;
+const itemsCount = 5;
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -51,8 +54,9 @@ export default class Demo extends React.Component {
       isPressed: false,
       originalPosOfLastPressed: 0,
       order: range(itemsCount),
-      correctOrder: [],
-      displayPlayers: []
+      displayPlayers: [],
+      playerScore: 0,
+      gameIndex: 0
     };
   }
 
@@ -84,48 +88,59 @@ export default class Demo extends React.Component {
 
   //test to change the order of arrays
   random = () => {
+    console.log('apple', this);
+    //let shuffledPlayers = shuffle(playersQBYPC);
     this.setState({
-      order: [5, 4, 3, 2, 1, 0]
+      order: [4, 3, 2, 1, 0]
+      //displayPlayers: shuffledPlayers
     });
   };
 
-  //handles rendering of list by showing players in a random order
-  newGame = () => {
-    console.log(players);
-    let sortedPlayers = sortByKey(players, 'td');
-    let shuffledPlayers = shuffle(players);
-    console.log(sortedPlayers);
+  //handles rendering the qb td list
+  qbTdGame = () => {
+    //console.log(players);
+    let sortedPlayers = sortByKey(playersQB.QBtd, 'td');
+    let shuffledPlayers = shuffle(playersQB.QBtd);
+    //console.log(sortedPlayers);
     this.setState({
-      correctOrder: sortedPlayers,
+      //correctOrder: sortedPlayers,
       displayPlayers: shuffledPlayers
     });
   };
 
-  ypcGame = () => {
-    console.log(playersQBYPC);
-    let sortedPlayers = sortByKey(playersQBYPC, 'ypc');
+  //handles rendering the ypc list
+  qbGame = () => {
+    let index = this.state.gameIndex;
+    console.log(index);
+    console.log(playersQB[index].players);
+    let sortedPlayers = sortByKey(playersQB[index].players, 'ypc');
     sortedPlayers.forEach((p, i) => {
       p['rank'] = i;
     });
-    let shuffledPlayers = shuffle(playersQBYPC);
-    console.log(sortedPlayers);
+    let shuffledPlayers = shuffle(playersQB[index].players);
+    //console.log(sortedPlayers);
     this.setState({
-      correctOrder: sortedPlayers,
+      //correctOrder: sortedPlayers,
       displayPlayers: sortedPlayers
     });
   };
 
+  //handles qb rating list
   qbRateGame = () => {
-    console.log(playersQBrate);
-    let sortedPlayers = sortByKey(playersQBrate, 'QBrating');
-    let shuffledPlayers = shuffle(playersQBrate);
-    console.log(sortedPlayers);
+    //console.log(playersQBrate);
+    let sortedPlayers = sortByKey(playersQB.QBrate, 'QBrating');
+    sortedPlayers.forEach((p, i) => {
+      p['rank'] = i;
+    });
+    let shuffledPlayers = shuffle(playersQB.QBrate);
+    //console.log(sortedPlayers);
     this.setState({
       //correctOrder : sortedPlayers,
-      //displayPlayers : shuffledPlayers
+      displayPlayers: shuffledPlayers
     });
   };
 
+  //handles clicking and dragging of the list elements
   handleMouseMove = ({ pageY }) => {
     const {
       isPressed,
@@ -145,32 +160,81 @@ export default class Demo extends React.Component {
           order.indexOf(originalPosOfLastPressed),
           currentRow
         );
+        this.isCorrect(newOrder);
       }
-      console.log(newOrder);
       this.setState({ mouseY: mouseY, order: newOrder });
     }
   };
 
+  //handle release of the mouse click
   handleMouseUp = () => {
     this.setState({ isPressed: false, topDeltaY: 0 });
   };
 
+  //checks user answers vs the correct answers
+  isCorrect = newOrder => {
+    console.log(this.state.displayPlayers, newOrder);
+    for (let i = 0; i < newOrder.length; i++) {
+      if (this.state.displayPlayers[newOrder[i]].rank !== i) {
+        console.log('loser');
+        return;
+      }
+    }
+    console.log('winner');
+    let gameIndex = Number(this.state.gameIndex);
+    gameIndex++;
+    console.log(typeof this.state.gameIndex);
+    console.log(gameIndex);
+    this.setState(
+      {
+        gameIndex: gameIndex
+      },
+      function() {
+        console.log(this.state);
+        this.qbGame();
+      }
+    );
+  };
+
+  winner = () => {
+    console.log('apple', this);
+    let shuffledPlayers = shuffle(playersQB.QBypc);
+    this.setState({
+      //order: [4, 3, 2, 1, 0],
+      displayPlayers: shuffledPlayers
+    });
+  };
+
   submit = () => {
-    console.log(this);
-    let sortedPlayers = sortByKey(playersQBYPC, 'ypc');
-    console.log(sortedPlayers);
-    console.log(this.state.order);
+    //console.log(this);
+    let sortedPlayers = sortByKey(playersQB.QBypc, 'ypc');
+    //console.log(sortedPlayers);
+    //console.log(this.state.order);
+    //console.log(this.state.playerScore);
   };
 
   render() {
     const { mouseY, isPressed, originalPosOfLastPressed, order } = this.state;
     let complete = true;
 
+    /*const test = document.getElementById('test');
+    const ypcGameStyle = document.getElementById('ypcGameStyle');
+
+    ypcGameStyle.addEventListener("mouseover", function() {
+      test.classList.add("gold");
+    });
+
+    ypcGameStyle.addEventListener("mouseout", function() {
+      test.classList.remove("gold");
+    });*/
+
     return (
-      <div className="demo8">
-        {/*}  <Button onClick = {() => this.random()}> click </Button>
-        <Button onClick = {this.newGame}> newgame </Button>*/}
-        <Button onClick={this.ypcGame}> ypc game</Button>
+      <div id="test" className="demo8">
+        <Button onClick={() => this.random()}> click </Button>
+        <Button id="ypcGameStyle" onClick={this.qbGame}>
+          {' '}
+          qb game
+        </Button>
         {/*}<Button onClick = {this.qbRateGame}> qb rate game</Button>
         <Button onClick = {() => sortByKey(players, 'td')}> Get the answer for td </Button>
         <Button onClick = {() => sortByKey(playersQBYPC, 'ypc')}> Get the answer for ypc </Button>*/}
@@ -212,7 +276,6 @@ export default class Demo extends React.Component {
                   {order.indexOf(i) == player.rank ? 'correct' : 'incorrect'} :
                   {order.indexOf(i) == player.rank ? null : (complete = false)}
                   {player.displayName}
-                  <span style={divStyle}>{Math.random()}</span>
                 </div>
               )}
             </Motion>
