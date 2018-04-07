@@ -1,61 +1,74 @@
 export const playersRB = [
   {
-    RBypc: [
+    gameType: 'RBypc',
+    players: [
       { displayName: 'Devonta Freeman', ypc: 4.42 },
       { displayName: 'Jordan Howard', ypc: 4.07 },
       { displayName: 'Ezekiel Elliot', ypc: 4.06 },
       { displayName: "Le'Veon Bell", ypc: 4.02 },
       { displayName: 'Leonard Fournette', ypc: 3.88 }
-    ]
+    ],
+    question: 'Which of these running backs had the most yards per carry?'
   },
 
   {
-    RBrushingYards: [
+    gameType: 'RBrushingYards',
+    players: [
       { displayName: 'Alex Collins', yards: 973 },
       { displayName: 'Dion Lewis', yards: 896 },
       { displayName: 'Lamar Miller', yards: 888 },
       { displayName: 'Devonta Freeman', yards: 865 },
       { displayName: 'Alvin Kamara', yards: 728 }
-    ]
+    ],
+    question: 'Which of these running backs had the most rushing yards?'
   },
 
   {
-    RBreceptions: [
+    gameType: 'RBreceptions',
+    players: [
       { displayName: 'Lesean McCoy', receptions: 59 },
       { displayName: 'Melvin Gordon', receptions: 58 },
       { displayName: 'James White', receptions: 56 },
       { displayName: 'Kareem Hunt', receptions: 53 },
       { displayName: 'Jerrick McKinnon', receptions: 51 }
-    ]
+    ],
+    question: 'Which of these running backs had the most receptions?'
   },
 
   {
-    RBrushingTd: [
+    gameType: 'RBrushingTd',
+    players: [
       { displayName: 'Jordan Howard', rushTd: 9 },
       { displayName: 'Kareem Hunt', rushTd: 8 },
       { displayName: 'Devonta Freeman', rushTd: 7 },
       { displayName: 'Lesean McCoy', rushTd: 6 },
       { displayName: 'Bilal Powell', rushTd: 5 }
-    ]
+    ],
+    question: 'Which of these running backs had the most rushing touchdowns?'
   },
 
   {
-    RBreceivingYards: [
+    gameType: 'RBreceivingYards',
+    players: [
       { displayName: 'Duke Johnson', recYards: 693 },
       { displayName: "Le'Veon Bell", recYards: 655 },
       { displayName: 'Christian McCaffrey', recYards: 651 },
       { displayName: 'Chris Thompson', recYards: 510 },
       { displayName: 'Melvin Gordon', recYards: 476 }
-    ]
+    ],
+    question: 'Which of these running backs had the most receiving yards?'
   },
 
   {
-    RBfantasyPts: [
+    gameType: 'RBfantasyPts',
+    players: [
       { displayName: 'Carlos Hyde', ffpts: 160 },
       { displayName: 'Christian McCaffrey', ffpts: 150 },
       { displayName: 'Lamar Miller', ffpts: 145 },
       { displayName: 'Tevin Coleman', ffpts: 144 },
       { displayName: 'Derrick Henry', ffpts: 142 }
-    ]
+    ],
+    question:
+      'Which of these running backs had the most overall fantasy points last year in standard formats?'
   }
 ];

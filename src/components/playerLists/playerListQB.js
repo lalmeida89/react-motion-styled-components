@@ -1,12 +1,14 @@
+import { PlayerImages } from './playerImages';
+
 export const playersQB = [
   {
     gameType: 'QBtd',
     players: [
-      { displayName: 'Andy Dalton', td: 25 },
-      { displayName: 'Case Keenum', td: 22 },
-      { displayName: 'Jay Cutler', td: 19 },
-      { displayName: 'Josh McCown', td: 18 },
-      { displayName: 'Aaron Rodgers', td: 16 }
+      { displayName: 'Andy Dalton', td: 25, img: PlayerImages.AndyDalton },
+      { displayName: 'Case Keenum', td: 22, img: PlayerImages.CaseKeenum },
+      { displayName: 'Jay Cutler', td: 19, img: PlayerImages.JayCutler },
+      { displayName: 'Josh McCown', td: 18, img: PlayerImages.JoshMccown },
+      { displayName: 'Aaron Rodgers', td: 16, img: PlayerImages.AaronRodgers }
     ],
     question: 'Which of these QBs had the most tds?'
   },
