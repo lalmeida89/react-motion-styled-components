@@ -11,6 +11,7 @@
   "dependencies": {
     "fantasy-football-nerd": "^1.0.0",
     "firebase": "^4.11.0",
+    "font-awesome": "^4.7.0",
     "lodash.range": "^3.2.0",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",

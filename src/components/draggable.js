@@ -80,6 +80,8 @@ export default class Demo extends React.Component {
     window.addEventListener('touchend', this.handleMouseUp);
     window.addEventListener('mousemove', this.handleMouseMove);
     window.addEventListener('mouseup', this.handleMouseUp);
+    let timer = setInterval(this.tick, 1000);
+    this.setState({ timer });
   }
 
   componentWillUnmount() {
@@ -167,24 +169,21 @@ export default class Demo extends React.Component {
     let index = this.state.gameIndex;
     let gameContainer = this.state.gameContainer;
     console.log(typeof gameContainer, gameContainer);
-    console.log(PlayerImages[1].AaronRodgers);
+    console.log(gameContainer[index].players[1].img);
     let sortedPlayers = sortByKey(gameContainer[index].players);
     sortedPlayers.forEach((p, i) => {
       p['rank'] = i;
     });
     let shuffledPlayers = shuffle(gameContainer[index].players);
-    let timer = setInterval(this.tick, 1000);
     this.setState(
       {
         gameType: gameContainer[index].gameType,
         question: gameContainer[index].question,
         displayPlayers: sortedPlayers,
         loading: false,
-        counter: 15,
-        timer
+        counter: 5
       },
       function() {
-        //console.log(this.state);
         setTimeout(() => {
           this.setState({
             order: shuffle(this.state.order)
@@ -211,6 +210,13 @@ export default class Demo extends React.Component {
     });
   };
 
+  /*checkScore = () => {
+    if (order.indexOf(i) == player.rank) {
+      this.state.playerScore ++;
+      console.log(this.state.playerScore)
+    }
+  }*/
+
   //handles moving on to the next question once the timer runs out
   timeUp = () => {
     let gameIndex = Number(this.state.gameIndex);
@@ -221,7 +227,7 @@ export default class Demo extends React.Component {
         message: 'you lost',
         gameIndex: gameIndex,
         counter: 15,
-        backgroundImage: null
+        backgroundImage: 'white'
       },
       function() {
         setTimeout(() => {
@@ -245,7 +251,8 @@ export default class Demo extends React.Component {
         gameIndex: gameIndex,
         loading: true,
         message: 'you are a winner',
-        counter: 15
+        counter: 15,
+        playerScore: this.state.playerScore
       },
       function() {
         setTimeout(() => {
@@ -289,18 +296,27 @@ export default class Demo extends React.Component {
         id="test"
         className="demo8">
         <Timer>{this.state.counter}</Timer>
-        <Button onClick={this.random}> click </Button>
-        <Button
-          className={this.state.gameName == 'playersQB' ? 'active' : 'inactive'}
-          onClick={() => this.setGame(playersQB, 'playersQB')}>
-          {' '}
-          playersQB
-        </Button>
-        <Button onClick={() => this.setGame(playersWR, 'playersWR')}>
-          {' '}
-          playersWR
-        </Button>
+        <div className={this.state.gameName == null ? 'active' : 'inactive'}>
+          <Button
+            className={
+              this.state.gameName == 'playersQB' ? 'active' : 'inactive'
+            }
+            onClick={() => this.setGame(playersQB, 'playersQB')}>
+            {' '}
+            playersQB
+          </Button>
+          <Button
+            className={
+              this.state.gameName == 'playersWR' ? 'active' : 'inactive'
+            }
+            onClick={() => this.setGame(playersWR, 'playersWR')}>
+            {' '}
+            playersWR
+          </Button>
+        </div>
+
         <QuestionHeader> {this.state.question} </QuestionHeader>
+
         {this.state.loading
           ? loading
           : this.state.displayPlayers.map((player, i) => {
@@ -316,6 +332,7 @@ export default class Demo extends React.Component {
                       shadow: spring(1, springConfig),
                       y: spring(order.indexOf(i) * 100, springConfig)
                     };
+
               return (
                 <StyleMotion style={style} key={i}>
                   {({ scale, shadow, y }) => (
@@ -328,20 +345,23 @@ export default class Demo extends React.Component {
                           : 'incorrect demo8-item'
                       }
                       style={{
+                        background: `url(${player.img}) no-repeat `,
+                        margin: `0 0 auto auto`,
+                        backgroundPosition: `10% 10%`,
                         boxShadow: `rgba(0, 0, 0, 0.2) 0px ${shadow}px ${2 *
                           shadow}px 0px`,
                         transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
                         WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
                         zIndex: i === originalPosOfLastPressed ? 99 : i
                       }}>
-                      {order.indexOf(i)}
+                      {/*}{order.indexOf(i)}
                       {order.indexOf(i) == player.rank
                         ? 'correct'
                         : 'incorrect'}{' '}
                       :
                       {order.indexOf(i) == player.rank
                         ? null
-                        : (complete = false)}
+                        : (complete = false)}*/}
                       {player.displayName}
                     </div>
                   )}

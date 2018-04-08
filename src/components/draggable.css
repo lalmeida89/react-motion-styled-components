@@ -19,16 +19,20 @@
   display: -webkit-flex;
   -webkit-justify-content: center;
   -webkit-align-items: center;
+  margin-bottom: 200px;
+  border: 1px dashed blue;
 }
 .demo8 {
-  width: 70vw;
-  height: 400px;
+  width: 400px;
+  height: 800px;
   margin: auto;
   text-align: center;
+  margin-bottom: 200px;
+  border: 1px dashed red;
 }
 .demo8-item {
   position: absolute;
-  width: 50vw;
+  width: inherit;
   height: 90px;
   margin: auto;
   overflow: visible;
@@ -38,11 +42,14 @@
   color: rgb(153, 153, 153);
   line-height: 96px;
   padding-left: 32px;
+  padding-right: 20px;
   font-size: 24px;
   font-weight: 400;
   background-color: rgb(255, 255, 255);
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  text-align: left;
+  color: white;
 }
 .link {
   position: absolute;
@@ -72,4 +79,8 @@
 
 .loadingScreen {
   text-align: center;
+}
+
+.inactive {
+  display: none;
 }

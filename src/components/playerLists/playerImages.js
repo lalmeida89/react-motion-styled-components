@@ -1,5 +1,8 @@
 export const PlayerImages = [
-  { JoshMccown: 5 },
+  {
+    JoshMccown:
+      'https://d3d2maoophos6y.cloudfront.net/wp-content/uploads/2017/08/13105550/AP_17225009326679.jpg'
+  },
   {
     AaronRodgers:
       'https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Fdairylandexpress.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2018%2F01%2F894270980-green-bay-packers-v-carolina-panthers.jpg.jpg&w=850&h=560&c=sc'
