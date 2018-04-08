@@ -66,11 +66,10 @@ export default class Demo extends React.Component {
       gameType: '',
       question: '',
       timer: null,
-      counter: 15,
+      counter: 99,
       loading: false,
       message: '',
-      gameContainer: null,
-      backgroundImage: null
+      gameContainer: null
     };
   }
 
@@ -102,8 +101,7 @@ export default class Demo extends React.Component {
       topDeltaY: pageY - pressY,
       mouseY: pressY,
       isPressed: true,
-      originalPosOfLastPressed: pos,
-      backgroundImage: PlayerImages[1].AaronRodgers
+      originalPosOfLastPressed: pos
     });
   };
 
@@ -169,7 +167,6 @@ export default class Demo extends React.Component {
     let index = this.state.gameIndex;
     let gameContainer = this.state.gameContainer;
     console.log(typeof gameContainer, gameContainer);
-    console.log(gameContainer[index].players[1].img);
     let sortedPlayers = sortByKey(gameContainer[index].players);
     sortedPlayers.forEach((p, i) => {
       p['rank'] = i;
@@ -201,12 +198,6 @@ export default class Demo extends React.Component {
     }
     this.setState({
       counter: this.state.counter - 1
-    });
-  };
-
-  setBackgroundImage = backgroundImage => {
-    this.setState({
-      backgroundImage: this.state.backgroundImage
     });
   };
 
@@ -266,17 +257,6 @@ export default class Demo extends React.Component {
     const { mouseY, isPressed, originalPosOfLastPressed, order } = this.state;
     let complete = true;
 
-    /*const test = document.getElementById('test');
-    const ypcGameStyle = document.getElementById('ypcGameStyle');
-
-    ypcGameStyle.addEventListener("mouseover", function() {
-    test.classList.add("gold");
-  });
-
-  ypcGameStyle.addEventListener("mouseout", function() {
-  test.classList.remove("gold");
-});*/
-
     const loading = (
       <div className="loading">
         <div>{this.state.message}</div>
@@ -291,10 +271,7 @@ export default class Demo extends React.Component {
     );
 
     return (
-      <div
-        style={{ backgroundImage: `url(${this.state.backgroundImage})` }}
-        id="test"
-        className="demo8">
+      <div id="test" className="demo8">
         <Timer>{this.state.counter}</Timer>
         <div className={this.state.gameName == null ? 'active' : 'inactive'}>
           <Button
@@ -305,6 +282,7 @@ export default class Demo extends React.Component {
             {' '}
             playersQB
           </Button>
+
           <Button
             className={
               this.state.gameName == 'playersWR' ? 'active' : 'inactive'
@@ -312,6 +290,24 @@ export default class Demo extends React.Component {
             onClick={() => this.setGame(playersWR, 'playersWR')}>
             {' '}
             playersWR
+          </Button>
+
+          <Button
+            className={
+              this.state.gameName == 'playersRB' ? 'active' : 'inactive'
+            }
+            onClick={() => this.setGame(playersRB, 'playersRB')}>
+            {' '}
+            playersRB
+          </Button>
+
+          <Button
+            className={
+              this.state.gameName == 'playersTE' ? 'active' : 'inactive'
+            }
+            onClick={() => this.setGame(playersTE, 'playersTE')}>
+            {' '}
+            playersTE
           </Button>
         </div>
 
