@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
 * {
   padding: 0;
   margin: auto;
@@ -23,8 +25,8 @@
   border: 1px dashed blue;
 }
 .demo8 {
-  width: 400px;
-  height: 800px;
+  width: 365px;
+  height: 700px;
   margin: auto;
   text-align: center;
   margin-bottom: 200px;
@@ -32,7 +34,7 @@
 }
 .demo8-item {
   position: absolute;
-  width: inherit;
+  width: 363px;
   height: 90px;
   margin: auto;
   overflow: visible;
@@ -73,14 +75,21 @@
   background: gold !important;
 }
 
-.active {
-  background-color: cyan;
-}
-
 .loadingScreen {
   text-align: center;
 }
 
 .inactive {
   display: none;
+}
+
+.digitalClock {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.questionHeader {
+  color: grey;
+  margin: 1.3em auto 1.3em;
+  font-family: sans-serif;
+  font-size: 22px;
 }

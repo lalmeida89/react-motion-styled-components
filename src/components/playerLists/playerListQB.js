@@ -8,34 +8,34 @@ export const playersQB = [
         displayName: 'Andy Dalton',
         td: 25,
         img:
-          'http://www.bengals.com/assets/images/imported/CIN/photos/630x269-photos/2017/Dalton-Andy/123117-dalton-andy-art.jpg'
+          'https://mediaassets.wcpo.com/photo/2017/10/03/WCPO_Andy_Dalton_1507058845916_67875589_ver1.0_640_480.jpg'
       },
       {
         displayName: 'Case Keenum',
         td: 22,
         img:
-          'https://sportshub.cbsistatic.com/i/r/2017/09/17/5108a25a-4898-4685-80a6-7c2a56b6a845/thumbnail/770x433/ddc7f0e8f33ee2f1512135e8afa41e08/case-keenum.jpg'
+          'https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Fsportingsota.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2017%2F12%2F897872958-minnesota-vikings-v-green-bay-packers.jpg.jpg&c=sc&w=850&h=560'
       },
       {
         displayName: 'Jay Cutler',
         td: 19,
         img:
-          'http://media.chicagomag.com//whet/jay-cutler-politics.jpg?ver=1359064718'
+          'https://www.washingtonpost.com/resizer/S8XzRclrN-9z4YmfpBTyghy8Cwk=/480x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/QH2ENIRM3A5SFJPDCOH4MYYSEI.jpg'
       },
       {
         displayName: 'Josh McCown',
         td: 18,
         img:
-          'http://www.newyorkjets.com/assets/images/imported/NYJ/McCown_StartingQB-story.jpg'
+          'https://nbcprofootballtalk.files.wordpress.com/2017/12/886359896-e1512735209592.jpg?w=560&h=316&crop=1'
       },
       {
         displayName: 'Aaron Rodgers',
         td: 16,
         img:
-          'https://cbssportslocal.files.wordpress.com/2016/11/rodgers.jpg?w=500'
+          'http://prod.static.packers.clubs.nfl.com//assets/images/imported/GB/photos/persons/player-cards/Rodgers_Aaron.jpg'
       }
     ],
-    question: 'Which of these QBs had the most tds?'
+    question: 'Rank these QBs in order of most to fewest touchdowns thrown'
   },
 
   {
@@ -72,7 +72,7 @@ export const playersQB = [
           'http://www.panthers.com/assets/images/imported/CAR/photos/2017/12-December/180103_cam_inside.jpg?w=690&h=300&crop=1'
       }
     ],
-    question: 'Which of these QBs had the highest yards per carry?'
+    question: 'Rank these QBs in order of highest to lowest yards per carry'
   },
 
   {
@@ -82,13 +82,13 @@ export const playersQB = [
         displayName: 'Josh McCown',
         QBrating: 94.5,
         img:
-          'http://www.newyorkjets.com/assets/images/imported/NYJ/McCown_StartingQB-story.jpg'
+          'https://nbcprofootballtalk.files.wordpress.com/2017/12/886359896-e1512735209592.jpg?w=560&h=316&crop=1'
       },
       {
         displayName: 'Kirk Cousins',
         QBrating: 93.9,
         img:
-          'https://amp.businessinsider.com/images/5a9eec135cc41031008b45dc-750-375.jpg'
+          'https://www.twincities.com/wp-content/uploads/2018/03/cousins_future_football_38116.jpg?w=525'
       },
       {
         displayName: 'Matt Ryan',
@@ -108,7 +108,7 @@ export const playersQB = [
           'http://images.performgroup.com/di/library/sporting_news/23/a7/derek-carr-080217-getty-ftrjpg_1ug5ry8dnn6ax1hke9vk2ew76t.jpg?t=-1558334939&w=600&quality=70'
       }
     ],
-    question: 'Which of these QBs had the highest QB rating?'
+    question: 'Rank these QBs in order of highest to lowest Quarterback Rating'
   },
 
   {
@@ -141,9 +141,10 @@ export const playersQB = [
         displayName: 'Josh McCown',
         int: 9,
         img:
-          'http://www.newyorkjets.com/assets/images/imported/NYJ/McCown_StartingQB-story.jpg'
+          'https://nbcprofootballtalk.files.wordpress.com/2017/12/886359896-e1512735209592.jpg?w=560&h=316&crop=1'
       }
-    ]
+    ],
+    question: 'Rank these QBs in order of most to fewest interceptions thrown'
   },
 
   {
@@ -177,9 +178,10 @@ export const playersQB = [
         displayName: 'Carson Wentz',
         completions: 265,
         img:
-          'http://images.tritondigitalcms.com/6616/sites/82/2017/10/26140913/Carson-Wentz.jpg?resize=650,400'
+          'http://assets.nydailynews.com/polopoly_fs/1.3614612.1509983073!/img/httpImage/image.jpg_gen/derivatives/article_750/cardinals-eagles-football.jpg'
       }
-    ]
+    ],
+    question: 'Rank these QBs in order of most to fewest completions thrown'
   },
 
   {
@@ -212,9 +214,10 @@ export const playersQB = [
         displayName: 'Eli Manning',
         passYards: 3468,
         img:
-          'https://usathss.files.wordpress.com/2016/01/screen-shot-2016-01-24-at-10-18-21-pm.jpg?w=640&h=467'
+          'https://static01.nyt.com/images/2017/12/06/sports/06MANNING-01/06MANNING-01-master768.jpg'
       }
-    ]
+    ],
+    question: 'Rank these QBs in order of most to fewest passing yards'
   },
 
   {
@@ -236,7 +239,7 @@ export const playersQB = [
         displayName: 'Carson Wentz',
         ffpts: 342,
         img:
-          'http://images.tritondigitalcms.com/6616/sites/82/2017/10/26140913/Carson-Wentz.jpg'
+          'http://assets.nydailynews.com/polopoly_fs/1.3614612.1509983073!/img/httpImage/image.jpg_gen/derivatives/article_750/cardinals-eagles-football.jpg'
       },
       {
         displayName: 'Blake Bortles',
@@ -249,6 +252,8 @@ export const playersQB = [
         ffpts: 325,
         img: 'http://www.therams.com/assets/images/imported/LA/GoffFire.jpg'
       }
-    ]
+    ],
+    question:
+      'Rank these QBs in order of most to fewest overall Fantasy points in standard leagues'
   }
 ];

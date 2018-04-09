@@ -25,13 +25,7 @@ const DynamicRender = props => {
 
 const Home = props => (
   <div>
-    {/*}<Autosugg fetchSentiment={props.fetchSentiment} />
-    <p>{props.sentimentValue}</p>
-    <DynamicRender sentimentValue={props.sentimentValue} />*/}
     <Draggable />
-    {/*}<Button>Normal Button</Button>
-    <Button primary>Primary Button</Button>
-    <PlayerList />*/}
   </div>
 );
 

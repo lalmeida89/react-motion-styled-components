@@ -178,7 +178,7 @@ export default class Demo extends React.Component {
         question: gameContainer[index].question,
         displayPlayers: sortedPlayers,
         loading: false,
-        counter: 5
+        counter: 7
       },
       function() {
         setTimeout(() => {
@@ -272,46 +272,54 @@ export default class Demo extends React.Component {
 
     return (
       <div id="test" className="demo8">
-        <Timer>{this.state.counter}</Timer>
+        <Timer className={this.state.gameName ? 'digitalClock' : 'inactive '}>
+          {this.state.counter}
+        </Timer>
         <div className={this.state.gameName == null ? 'active' : 'inactive'}>
           <Button
+            qb
             className={
               this.state.gameName == 'playersQB' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersQB, 'playersQB')}>
             {' '}
-            playersQB
+            QBs
           </Button>
 
           <Button
+            wr
             className={
               this.state.gameName == 'playersWR' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersWR, 'playersWR')}>
             {' '}
-            playersWR
+            WRs
           </Button>
 
           <Button
+            rb
             className={
               this.state.gameName == 'playersRB' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersRB, 'playersRB')}>
             {' '}
-            playersRB
+            RBs
           </Button>
 
           <Button
+            te
             className={
               this.state.gameName == 'playersTE' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersTE, 'playersTE')}>
             {' '}
-            playersTE
+            TEs
           </Button>
         </div>
 
-        <QuestionHeader> {this.state.question} </QuestionHeader>
+        <h1 className={this.state.loading ? 'inactive' : 'questionHeader'}>
+          {this.state.question}{' '}
+        </h1>
 
         {this.state.loading
           ? loading
