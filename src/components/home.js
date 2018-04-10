@@ -5,16 +5,11 @@ import { connect } from 'react-redux';
 import { fetchSentiment } from '../modules/counter';
 import Autosugg from './autosuggest.js';
 import Draggable from './draggable';
+import { MainHeader } from './styleComponents/mainHeader';
 //import PlayerList from './playerList';
 
 import sentiment from 'sentiment';
-import { Button } from './button';
 
-// var r1 = sentiment('Cats are stupid.');
-// console.dir(r1);        // Score: -2, Comparative: -0.666
-
-// var r2 = sentiment('Cats are totally amazing!');
-// console.dir(r2);        // Score: 4, Comparative: 1
 const DynamicRender = props => {
   if (props.sentimentValue > 0) {
     return <p>Good to hear!</p>;
@@ -25,6 +20,7 @@ const DynamicRender = props => {
 
 const Home = props => (
   <div>
+    <MainHeader> Test Your Football Stats Knowledge </MainHeader>
     <Draggable />
   </div>
 );

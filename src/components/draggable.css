@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Electrolize|Marcellus|Orbitron|Reem+Kufi');
 
 * {
   padding: 0;
@@ -6,6 +6,13 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+}
+
+html {
+  background: url('http://maristpoll.marist.edu/wp-content/uploads/2017/02/Football-Field-at-Night_FEATURED-IMAGE_iStock_000021642831_Small.jpg')
+    no-repeat;
+  background-size: cover;
+  background-position: 50% -200px;
 }
 
 .demo8-outer {
@@ -30,7 +37,6 @@
   margin: auto;
   text-align: center;
   margin-bottom: 200px;
-  border: 1px dashed red;
 }
 .demo8-item {
   position: absolute;
@@ -83,13 +89,33 @@
   display: none;
 }
 
+.active {
+  background-color: #cccdd6c2;
+  border-radius: 8px;
+  height: auto;
+  padding: 20px 5px;
+  margin-top: 2em;
+}
+
 .digitalClock {
   font-family: 'Orbitron', sans-serif;
 }
 
 .questionHeader {
-  color: grey;
-  margin: 1.3em auto 1.3em;
+  margin: 0.2em auto 0.5em;
   font-family: sans-serif;
   font-size: 22px;
+  color: grey;
+}
+
+.intro {
+  color: #34423a;
+}
+
+.playerNames {
+  font-size: 22px;
+  font-family: 'Reem Kufi', sans-serif;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }

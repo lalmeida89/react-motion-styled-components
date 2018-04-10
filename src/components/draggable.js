@@ -8,7 +8,7 @@ import { playersRB } from './playerLists/playerListRB';
 import { playersWR } from './playerLists/playerListWR';
 import { playersTE } from './playerLists/playerListTE';
 import { PlayerImages } from './playerLists/playerImages';
-import { Button } from './button';
+import { Button } from './styleComponents/button';
 import { Rotate } from './styleComponents/loading';
 import { Timer } from './styleComponents/timerStyle';
 import { QuestionHeader } from './styleComponents/questionHeader';
@@ -178,7 +178,7 @@ export default class Demo extends React.Component {
         question: gameContainer[index].question,
         displayPlayers: sortedPlayers,
         loading: false,
-        counter: 7
+        counter: 5
       },
       function() {
         setTimeout(() => {
@@ -212,6 +212,7 @@ export default class Demo extends React.Component {
   timeUp = () => {
     let gameIndex = Number(this.state.gameIndex);
     gameIndex++;
+    console.log(this.state.order);
     this.setState(
       {
         loading: true,
@@ -276,6 +277,10 @@ export default class Demo extends React.Component {
           {this.state.counter}
         </Timer>
         <div className={this.state.gameName == null ? 'active' : 'inactive'}>
+          <h1 className="questionHeader intro">
+            {' '}
+            Time to test out your memory of what happened in 2017{' '}
+          </h1>
           <Button
             qb
             className={
@@ -350,6 +355,7 @@ export default class Demo extends React.Component {
                       }
                       style={{
                         background: `url(${player.img}) no-repeat `,
+                        opacity: `1`,
                         margin: `0 0 auto auto`,
                         backgroundPosition: `10% 10%`,
                         boxShadow: `rgba(0, 0, 0, 0.2) 0px ${shadow}px ${2 *
@@ -366,7 +372,7 @@ export default class Demo extends React.Component {
                       {order.indexOf(i) == player.rank
                         ? null
                         : (complete = false)}*/}
-                      {player.displayName}
+                      <h2 className="playerNames">{player.displayName}</h2>
                     </div>
                   )}
                 </StyleMotion>

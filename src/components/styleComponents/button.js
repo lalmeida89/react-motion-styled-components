@@ -2,15 +2,19 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 0.25em 1em;
   margin: 20px 25px 5px;
   color: white;
-  border: 2px solid palevioletred;
+  border: 2px solid #34423a;
   display: inline-block;
+  font-size: 22px;
+  font-family: 'Reem Kufi', sans-serif;
   width: 120px;
   height: 90px;
   opacity: 0.6;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
   &:hover {
     opacity: 1;
   }
@@ -18,7 +22,8 @@ export const Button = styled.button`
   ${props =>
     props.qb &&
     css`
-      background: url(https://78media.tumblr.com/avatar_6cd39ce25707_128.pnj);
+      background: url(https://cdnph.upi.com/svc/sv/upi/9961472231234/2016/1/0512e46942365bdb04c22b78fc5165cf/Fantasy-Football-2016-Top-50-quarterback-rankings-led-by-Aaron-Rodgers.jpg);
+      background-size: cover;
     `};
 
   ${props =>
