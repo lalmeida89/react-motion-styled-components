@@ -20,7 +20,6 @@ const DynamicRender = props => {
 
 const Home = props => (
   <div>
-    <MainHeader> Test Your Football Stats Knowledge </MainHeader>
     <Draggable />
   </div>
 );

@@ -1,5 +1,3 @@
-import { PlayerImages } from './playerImages';
-
 export const playersQB = [
   {
     gameType: 'QBtd',
@@ -35,7 +33,7 @@ export const playersQB = [
           'http://prod.static.packers.clubs.nfl.com//assets/images/imported/GB/photos/persons/player-cards/Rodgers_Aaron.jpg'
       }
     ],
-    question: 'Rank these QBs in order of most to fewest touchdowns thrown'
+    question: 'Most touchdowns thrown'
   },
 
   {
@@ -72,7 +70,7 @@ export const playersQB = [
           'http://www.panthers.com/assets/images/imported/CAR/photos/2017/12-December/180103_cam_inside.jpg?w=690&h=300&crop=1'
       }
     ],
-    question: 'Rank these QBs in order of highest to lowest yards per carry'
+    question: 'Most yards per carry'
   },
 
   {
@@ -108,7 +106,7 @@ export const playersQB = [
           'http://images.performgroup.com/di/library/sporting_news/23/a7/derek-carr-080217-getty-ftrjpg_1ug5ry8dnn6ax1hke9vk2ew76t.jpg?t=-1558334939&w=600&quality=70'
       }
     ],
-    question: 'Rank these QBs in order of highest to lowest Quarterback Rating'
+    question: 'Highest QB Rating'
   },
 
   {
@@ -144,7 +142,7 @@ export const playersQB = [
           'https://nbcprofootballtalk.files.wordpress.com/2017/12/886359896-e1512735209592.jpg?w=560&h=316&crop=1'
       }
     ],
-    question: 'Rank these QBs in order of most to fewest interceptions thrown'
+    question: 'Most interceptions thrown'
   },
 
   {
@@ -181,7 +179,7 @@ export const playersQB = [
           'http://assets.nydailynews.com/polopoly_fs/1.3614612.1509983073!/img/httpImage/image.jpg_gen/derivatives/article_750/cardinals-eagles-football.jpg'
       }
     ],
-    question: 'Rank these QBs in order of most to fewest completions thrown'
+    question: 'Most completions thrown'
   },
 
   {
@@ -217,7 +215,7 @@ export const playersQB = [
           'https://static01.nyt.com/images/2017/12/06/sports/06MANNING-01/06MANNING-01-master768.jpg'
       }
     ],
-    question: 'Rank these QBs in order of most to fewest passing yards'
+    question: 'Most passing yards'
   },
 
   {
@@ -253,7 +251,6 @@ export const playersQB = [
         img: 'http://www.therams.com/assets/images/imported/LA/GoffFire.jpg'
       }
     ],
-    question:
-      'Rank these QBs in order of most to fewest overall Fantasy points in standard leagues'
+    question: 'Most Fantasy points (standard format)'
   }
 ];

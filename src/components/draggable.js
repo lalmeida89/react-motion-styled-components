@@ -7,7 +7,6 @@ import { playersQB } from './playerLists/playerListQB';
 import { playersRB } from './playerLists/playerListRB';
 import { playersWR } from './playerLists/playerListWR';
 import { playersTE } from './playerLists/playerListTE';
-import { PlayerImages } from './playerLists/playerImages';
 import { Button } from './styleComponents/button';
 import { Rotate } from './styleComponents/loading';
 import { Timer } from './styleComponents/timerStyle';
@@ -69,7 +68,10 @@ export default class Demo extends React.Component {
       counter: 99,
       loading: false,
       message: '',
-      gameContainer: null
+      gameContainer: null,
+      gameOver: false,
+      resultGif: '',
+      grade: ''
     };
   }
 
@@ -79,8 +81,6 @@ export default class Demo extends React.Component {
     window.addEventListener('touchend', this.handleMouseUp);
     window.addEventListener('mousemove', this.handleMouseMove);
     window.addEventListener('mouseup', this.handleMouseUp);
-    let timer = setInterval(this.tick, 1000);
-    this.setState({ timer });
   }
 
   componentWillUnmount() {
@@ -125,7 +125,6 @@ export default class Demo extends React.Component {
           order.indexOf(originalPosOfLastPressed),
           currentRow
         );
-        this.isCorrect(newOrder);
       }
       this.setState({ mouseY: mouseY, order: newOrder });
     }
@@ -148,10 +147,12 @@ export default class Demo extends React.Component {
   };
 
   setGame = (gameContainer, gameName) => {
+    let timer = setInterval(this.tick, 1000);
     this.setState(
       {
         gameContainer: gameContainer,
-        gameName: gameName
+        gameName: gameName,
+        timer
       },
       function() {
         this.qbGame();
@@ -166,7 +167,7 @@ export default class Demo extends React.Component {
   qbGame = () => {
     let index = this.state.gameIndex;
     let gameContainer = this.state.gameContainer;
-    console.log(typeof gameContainer, gameContainer);
+    console.log(Math.floor(gameContainer.length * 50));
     let sortedPlayers = sortByKey(gameContainer[index].players);
     sortedPlayers.forEach((p, i) => {
       p['rank'] = i;
@@ -178,7 +179,7 @@ export default class Demo extends React.Component {
         question: gameContainer[index].question,
         displayPlayers: sortedPlayers,
         loading: false,
-        counter: 5
+        counter: 15
       },
       function() {
         setTimeout(() => {
@@ -201,25 +202,101 @@ export default class Demo extends React.Component {
     });
   };
 
-  /*checkScore = () => {
-    if (order.indexOf(i) == player.rank) {
-      this.state.playerScore ++;
-      console.log(this.state.playerScore)
+  checkScore = () => {
+    let score = this.state.playerScore;
+    let container = this.state.gameContainer.length;
+    let grade = score / container;
+    if (grade <= 15) {
+      this.setState({
+        grade: 'F',
+        message:
+          "You probably came last in your league. Hope the punishment wasn't too bad.",
+        resultGif:
+          'https://uproxx.files.wordpress.com/2014/11/buttfumble-2.gif?w=650'
+      });
+    } else if (grade > 15 && grade < 20) {
+      this.setState({
+        grade: 'C',
+        message:
+          "Really below average. Hope that doesn't translate to your personal life.",
+        resultGif: 'https://i.gifer.com/1DMt.gif'
+      });
+    } else if (grade > 20 && grade <= 25) {
+      this.setState({
+        grade: 'C+',
+        message: 'You really dropped the ball on this one. Get it together!!',
+        resultGif: 'https://media.giphy.com/media/3o7WIPe6fIhuQ4UKyc/giphy.gif'
+      });
+    } else if (grade > 25 && grade <= 30) {
+      this.setState({
+        grade: 'B-',
+        message:
+          "This isn't the worst result I've ever seen. It's not very good either",
+        resultGif: 'https://i.imgur.com/KueuxdZ.gif'
+      });
+    } else if (grade > 30 && grade <= 35) {
+      this.setState({
+        grade: 'B',
+        message:
+          "Not too shabby, my friend. Give it another shot, maybe it won't be so mediocre",
+        resultGif:
+          'https://uproxx.files.wordpress.com/2015/09/brownsfumble1.gif?w=650&h=366'
+      });
+    } else if (grade > 35 && grade <= 40) {
+      this.setState({
+        grade: 'B+',
+        message:
+          "You probably made the playoffs and got knocked out in the first round. There's always next year",
+        resultGif:
+          'https://s-media-cache-ak0.pinimg.com/originals/da/fb/37/dafb37eda8b99019fb2302c64488f703.gif'
+      });
+    } else if (grade > 40 && grade <= 45) {
+      this.setState({
+        grade: 'A',
+        message:
+          "You probably came in second place last year. But you know what they say, If you ain't first, you're last",
+        resultGif:
+          'https://thecrossoverreport.files.wordpress.com/2017/06/gronkdance2_original_original.gif'
+      });
+    } else if (grade > 45 && grade <= 50) {
+      this.setState({
+        grade: 'A+',
+        message:
+          'You definitely won it all last year, great job!! You are a deserving champion, my friend',
+        resultGif: 'https://media.giphy.com/media/26xBsTS9WJ7THk4mI/giphy.gif'
+      });
     }
-  }*/
+  };
 
   //handles moving on to the next question once the timer runs out
   timeUp = () => {
     let gameIndex = Number(this.state.gameIndex);
     gameIndex++;
-    console.log(this.state.order);
+    console.log(gameIndex);
+    console.log(this.state.gameContainer.length);
+    let score = 0;
+    for (let i = 0; i < this.state.displayPlayers.length; i++) {
+      if (this.state.displayPlayers[this.state.order[i]].rank == i) {
+        score += 10;
+      }
+    }
+    if (gameIndex == this.state.gameContainer.length) {
+      this.setState({
+        gameOver: true,
+        playerScore: (this.state.playerScore += score)
+      });
+      this.checkScore();
+      window.clearInterval(this.state.timer);
+      return;
+    }
+    console.log(score);
     this.setState(
       {
         loading: true,
         message: 'you lost',
         gameIndex: gameIndex,
         counter: 15,
-        backgroundImage: 'white'
+        playerScore: (this.state.playerScore += score)
       },
       function() {
         setTimeout(() => {
@@ -231,10 +308,12 @@ export default class Demo extends React.Component {
 
   //checks user answers vs the correct answers
   isCorrect = newOrder => {
+    let score = 0;
     for (let i = 0; i < newOrder.length; i++) {
       if (this.state.displayPlayers[newOrder[i]].rank !== i) {
         return;
       }
+      score += 10;
     }
     let gameIndex = Number(this.state.gameIndex);
     gameIndex++;
@@ -244,7 +323,7 @@ export default class Demo extends React.Component {
         loading: true,
         message: 'you are a winner',
         counter: 15,
-        playerScore: this.state.playerScore
+        playerScore: (this.state.playerScore += score)
       },
       function() {
         setTimeout(() => {
@@ -260,7 +339,7 @@ export default class Demo extends React.Component {
 
     const loading = (
       <div className="loading">
-        <div>{this.state.message}</div>
+        <div>Current Score : {this.state.playerScore}</div>
         Loading{'...'.substr(0, this.state.counter % 3 + 1)}
         <Rotate>
           <img
@@ -271,16 +350,36 @@ export default class Demo extends React.Component {
       </div>
     );
 
+    if (this.state.gameOver) {
+      return (
+        <div className="resultsPage">
+          <h1 className="intro"> Your Grade </h1>
+          <div className="finalGrade"> {this.state.grade} </div>
+          <h3 className="resultMessage"> {this.state.message} </h3>
+          <img className="resultGif" src={this.state.resultGif} />
+
+          <Button reload onClick={() => window.location.reload()}>
+            {' '}
+            Try Again{' '}
+          </Button>
+        </div>
+      );
+    }
+
     return (
       <div id="test" className="demo8">
         <Timer className={this.state.gameName ? 'digitalClock' : 'inactive '}>
           {this.state.counter}
         </Timer>
         <div className={this.state.gameName == null ? 'active' : 'inactive'}>
-          <h1 className="questionHeader intro">
+          <h1 className="intro">Fantasy Ranks 2017</h1>
+          <h3 className="gameDescription">
             {' '}
-            Time to test out your memory of what happened in 2017{' '}
-          </h1>
+            Time to see how well you did in your league last year. To start the
+            game, select the category you think you know best. Once the game
+            starts, simply drag and drog the players and rearrange them in order
+            of the question asked. Simple as that. Now get started!{' '}
+          </h3>
           <Button
             qb
             className={
@@ -364,14 +463,9 @@ export default class Demo extends React.Component {
                         WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
                         zIndex: i === originalPosOfLastPressed ? 99 : i
                       }}>
-                      {/*}{order.indexOf(i)}
-                      {order.indexOf(i) == player.rank
-                        ? 'correct'
-                        : 'incorrect'}{' '}
-                      :
                       {order.indexOf(i) == player.rank
                         ? null
-                        : (complete = false)}*/}
+                        : (complete = false)}
                       <h2 className="playerNames">{player.displayName}</h2>
                     </div>
                   )}

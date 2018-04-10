@@ -46,4 +46,13 @@ export const Button = styled.button`
       background: url(https://www.cheatsheet.com/wp-content/uploads/2016/06/Ladarius-Green_Harry-How_Getty-Images-640x489.jpg?x23912);
       background-size: cover;
     `};
+
+  ${props =>
+    props.reload &&
+    css`
+      width: 100px;
+      height: 40px;
+      background-color: black;
+      font-size: 14px;
+    `};
 `;

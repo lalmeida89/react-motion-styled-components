@@ -33,7 +33,7 @@ export const playersWR = [
           'https://s3media.247sports.com/Uploads/Assets/803/270/6_3270803.jpg'
       }
     ],
-    question: 'which of these wideouts had the most targets?'
+    question: 'Most targets'
   },
 
   {
@@ -70,7 +70,7 @@ export const playersWR = [
           'http://larrybrownsports.com/wp-content/uploads/2016/07/Antonio-Brown.jpg'
       }
     ],
-    question: 'which of these wideouts had the most receptions'
+    question: 'Most receptions'
   },
 
   {
@@ -107,7 +107,7 @@ export const playersWR = [
           'http://www.nbcsports.com/philadelphia/sites/csnphilly/files/styles/article_hero_image/public/2018/02/01/ap-alshon-jeffery.jpg?itok=kPGtVNSq'
       }
     ],
-    question: 'which of thse wideouts had the most receiving yards'
+    question: 'Most receiving yards'
   },
 
   {
@@ -144,7 +144,7 @@ export const playersWR = [
           'http://lwosonnfl.ms.lastwordonsports.com/wp-content/uploads/sites/5/2017/12/894364842.jpg'
       }
     ],
-    question: 'which of these wideouts had the highest yards per reception'
+    question: 'Most yards per reception'
   },
 
   {
@@ -181,7 +181,7 @@ export const playersWR = [
           'https://s3media.247sports.com/Uploads/Assets/803/270/6_3270803.jpg'
       }
     ],
-    question: 'which of these wideouts had the most touchdowns'
+    question: 'Most touchdowns'
   },
 
   {
@@ -218,7 +218,6 @@ export const playersWR = [
           'http://media.phillyvoice.com/media/images/020118_chrishogan_usat.2e16d0ba.fill-735x490.jpg'
       }
     ],
-    question:
-      'which of these wideouts had the most overall fantasy points in standard formats'
+    question: 'Most Fantasy points (standard format)'
   }
 ];

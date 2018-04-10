@@ -6,5 +6,5 @@ export const QuestionHeader = styled.h1`
   display: block;
   margin: 1.3em auto 1.3em;
   font-family: sans-serif;
-  font-size: 22px;
+  font-size: 16px;
 `;

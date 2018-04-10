@@ -31,7 +31,7 @@ export const playersTE = [
           'http://www.colts.com/assets/images/imported/IND/article-images/2018/misc/122417_lions-bengals-ebron-td-ap_622.jpg'
       }
     ],
-    question: 'which of these tight ends had the most receptions'
+    question: 'Most receptions'
   },
 
   {
@@ -68,7 +68,7 @@ export const playersTE = [
           'https://sports.cbsimg.net/images/blogs/delanie-walker-01302014.jpg'
       }
     ],
-    question: 'which of these tight ends had the highest yards per reception'
+    question: 'Highest yards per reception'
   },
 
   {
@@ -103,7 +103,7 @@ export const playersTE = [
           'http://www4.pictures.zimbio.com/gi/Hunter+Henry+Denver+Broncos+v+Los+Angeles+9fFa95Sgdiyl.jpg'
       }
     ],
-    question: 'which of these tight ends had the most touchdowns'
+    question: 'Most touchdowns'
   },
 
   {
@@ -139,7 +139,7 @@ export const playersTE = [
           'http://1y4yclbm79aqghpm1xoezrdw.wpengine.netdna-cdn.com/wp-content/uploads/2015/10/jimmy-graham-touchdown-620-620x370.jpg'
       }
     ],
-    question: 'which of these tight ends had the most receiving yards'
+    question: 'Most receiving yards'
   },
 
   {
@@ -176,7 +176,6 @@ export const playersTE = [
           'http://i2.wp.com/rotoviz.com/wp-content/uploads/2016/06/Charles-Clay-e1507586922305.jpg?w=750'
       }
     ],
-    question:
-      'which of these tight ends had the most overall fantasy points in standard formats'
+    question: 'Most Fantasy points (standard format)'
   }
 ];

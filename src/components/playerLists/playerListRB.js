@@ -33,7 +33,7 @@ export const playersRB = [
           'http://image.masslive.com/home/mass-media/width600/img/patriots/photo/leonard-fournette-aad91a180c2ec29a.jpg'
       }
     ],
-    question: 'Which of these running backs had the most yards per carry?'
+    question: 'Most yards per carry?'
   },
 
   {
@@ -70,7 +70,7 @@ export const playersRB = [
           'http://image.nola.com/home/nola-media/width600/img/saints_impact/photo/kamara-10-yd-catch-panthers-at-saints-2018-wild-card-de743929ad73b6b2.jpg'
       }
     ],
-    question: 'Which of these running backs had the most rushing yards?'
+    question: 'Most rushing yards?'
   },
 
   {
@@ -105,7 +105,7 @@ export const playersRB = [
           'https://www.mercurynews.com/wp-content/uploads/2018/03/backs_07.jpg?w=620'
       }
     ],
-    question: 'Which of these running backs had the most receptions?'
+    question: 'Most receptions?'
   },
 
   {
@@ -142,7 +142,7 @@ export const playersRB = [
           'https://i1.wp.com/turnonthejets.com/wp-content/uploads/2016/07/Screen-Shot-2016-07-21-at-4.28.12-PM.png?fit=624%2C439'
       }
     ],
-    question: 'Which of these running backs had the most rushing touchdowns?'
+    question: 'Most rushing touchdowns?'
   },
 
   {
@@ -178,7 +178,7 @@ export const playersRB = [
         img: 'http://a.espncdn.com/photo/2017/1011/r272457_576x324_16-9.jpg'
       }
     ],
-    question: 'Which of these running backs had the most receiving yards?'
+    question: 'Most receiving yards?'
   },
 
   {
@@ -215,7 +215,6 @@ export const playersRB = [
           'http://www.titansonline.com/assets/images/imported/TEN/henry600-011018b.jpg'
       }
     ],
-    question:
-      'Which of these running backs had the most overall fantasy points last year in standard formats?'
+    question: 'Most Fantasy points (standard format)'
   }
 ];
