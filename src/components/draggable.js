@@ -3,6 +3,7 @@ import { Motion, spring } from 'react-motion';
 import 'font-awesome/css/font-awesome.min.css';
 import range from 'lodash.range';
 import './draggable.css';
+import './slider.css';
 import { playersQB } from './playerLists/playerListQB';
 import { playersRB } from './playerLists/playerListRB';
 import { playersWR } from './playerLists/playerListWR';
@@ -71,7 +72,8 @@ export default class Demo extends React.Component {
       gameContainer: null,
       gameOver: false,
       resultGif: '',
-      grade: ''
+      grade: '',
+      difficulty: 'Easy'
     };
   }
 
@@ -165,6 +167,7 @@ export default class Demo extends React.Component {
   //based on each players value. the setTimeout shuffles up the playerList the seconds
   //the players are loaded to give a little animation.
   qbGame = () => {
+    console.log(this.state.difficulty);
     let index = this.state.gameIndex;
     let gameContainer = this.state.gameContainer;
     console.log(Math.floor(gameContainer.length * 50));
@@ -200,6 +203,18 @@ export default class Demo extends React.Component {
     this.setState({
       counter: this.state.counter - 1
     });
+  };
+
+  setDifficulty = () => {
+    if (this.state.difficulty == 'Hard') {
+      this.setState({
+        difficulty: 'Easy'
+      });
+    } else {
+      this.setState({
+        difficulty: 'Hard'
+      });
+    }
   };
 
   checkScore = () => {
@@ -419,6 +434,17 @@ export default class Demo extends React.Component {
             {' '}
             TEs
           </Button>
+
+          <label className="switch">
+            <div className="easyLeft"> Easy </div>
+            <input
+              type="checkbox"
+              value="easy"
+              onClick={() => this.setDifficulty()}
+            />
+            <span className="slider round" />
+            <div className="hardRight"> Hard </div>
+          </label>
         </div>
 
         <h1 className={this.state.loading ? 'inactive' : 'questionHeader'}>
@@ -448,9 +474,11 @@ export default class Demo extends React.Component {
                       onMouseDown={this.handleMouseDown.bind(null, i, y)}
                       onTouchStart={this.handleTouchStart.bind(null, i, y)}
                       className={
-                        order.indexOf(i) == player.rank
-                          ? 'correct demo8-item '
-                          : 'incorrect demo8-item'
+                        this.state.difficulty == 'Hard'
+                          ? 'demo8-item'
+                          : order.indexOf(i) == player.rank
+                            ? 'correct demo8-item '
+                            : 'incorrect demo8-item'
                       }
                       style={{
                         background: `url(${player.img}) no-repeat `,

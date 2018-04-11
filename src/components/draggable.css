@@ -160,3 +160,11 @@ html {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+
+.correct {
+  border: 2px solid green;
+}
+
+.incorrect {
+  border: 2px solid red;
+}
