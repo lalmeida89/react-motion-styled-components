@@ -88,7 +88,8 @@
   }
 }
 
-.scoreAnimate {
+.scoreAnimate,
+.wrong {
   border-radius: 10px;
   text-align: center;
   height: 45px;
@@ -96,13 +97,21 @@
   line-height: initial;
   position: fixed;
   left: 45%;
-  background-color: green;
   overflow: hidden;
   z-index: 99;
-  -webkit-animation: flickerAnimation 2s linear 1 forwards;
-  -moz-animation: flickerAnimation 2s linear 1 forwards;
-  -o-animation: flickerAnimation 2s linear 1 forwards;
-  animation: flickerAnimation 2s linear 1 forwards;
+  -webkit-animation: flickerAnimation 1s linear 1 alternate;
+  -moz-animation: flickerAnimation 1s linear 1 alternate;
+  -o-animation: flickerAnimation 1s linear 1 alternate;
+  animation: flickerAnimation 1s linear 1 alternate;
+}
+
+.scoreAnimate {
+  background-color: green;
+}
+
+.wrong {
+  background-color: red;
+  width: 60px;
 }
 
 .listAnimation {

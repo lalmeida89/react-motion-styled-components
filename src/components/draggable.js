@@ -182,7 +182,7 @@ export default class Demo extends React.Component {
       question: gameContainer[index].question,
       displayPlayers: sortedPlayers,
       loading: false,
-      counter: 3,
+      counter: 2,
       showStats: false
     });
   };
@@ -534,10 +534,11 @@ export default class Demo extends React.Component {
                             ? 'inactive'
                             : order.indexOf(i) == player.rank
                               ? 'scoreAnimate'
-                              : 'inactive'
+                              : 'wrong'
                         }>
                         {' '}
-                        +10{' '}
+                        +
+                        {order.indexOf(i) == player.rank ? 10 : 0}{' '}
                       </h2>
                     </div>
                   )}
