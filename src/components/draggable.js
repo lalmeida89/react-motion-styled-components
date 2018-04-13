@@ -66,14 +66,15 @@ export default class Demo extends React.Component {
       gameType: '',
       question: '',
       timer: null,
-      counter: 99,
+      counter: null,
       loading: false,
       message: '',
       gameContainer: null,
       gameOver: false,
       resultGif: '',
       grade: '',
-      difficulty: 'Easy'
+      difficulty: 'Easy',
+      showStats: false
     };
   }
 
@@ -167,29 +168,74 @@ export default class Demo extends React.Component {
   //based on each players value. the setTimeout shuffles up the playerList the seconds
   //the players are loaded to give a little animation.
   qbGame = () => {
-    console.log(this.state.difficulty);
+    console.log(this.state.showStats);
     let index = this.state.gameIndex;
     let gameContainer = this.state.gameContainer;
-    console.log(Math.floor(gameContainer.length * 50));
     let sortedPlayers = sortByKey(gameContainer[index].players);
     sortedPlayers.forEach((p, i) => {
       p['rank'] = i;
     });
     let shuffledPlayers = shuffle(gameContainer[index].players);
+    this.setState({
+      gameType: gameContainer[index].gameType,
+      question: gameContainer[index].question,
+      displayPlayers: sortedPlayers,
+      loading: false,
+      counter: 15,
+      showStats: false
+    });
+  };
+
+  //handles moving on to the next question once the timer runs out
+  timeUp = () => {
+    let gameIndex = Number(this.state.gameIndex);
+    let timer = setInterval(this.tick, 1000);
+    console.log(gameIndex);
+    gameIndex++;
+    let score = 0;
+    for (let i = 0; i < this.state.displayPlayers.length; i++) {
+      if (this.state.displayPlayers[this.state.order[i]].rank == i) {
+        score += 10;
+      }
+    }
+    if (gameIndex == this.state.gameContainer.length) {
+      this.setState({
+        gameOver: true,
+        playerScore: (this.state.playerScore += score)
+      });
+      this.checkScore();
+      window.clearInterval(this.state.timer);
+      return;
+    }
     this.setState(
       {
-        gameType: gameContainer[index].gameType,
-        question: gameContainer[index].question,
-        displayPlayers: sortedPlayers,
-        loading: false,
-        counter: 15
+        loading: true,
+        gameIndex: gameIndex,
+        counter: null,
+        playerScore: (this.state.playerScore += score),
+        showStats: false
       },
       function() {
         setTimeout(() => {
-          this.setState({
-            order: shuffle(this.state.order)
-          });
-        }, 0);
+          this.qbGame();
+          this.setState({ timer });
+        }, 1500);
+      }
+    );
+  };
+
+  revealStats = () => {
+    window.clearInterval(this.state.timer);
+    this.setState(
+      {
+        showStats: true,
+        isPressed: false,
+        counter: null
+      },
+      function() {
+        setTimeout(() => {
+          this.timeUp();
+        }, 2000);
       }
     );
   };
@@ -198,7 +244,7 @@ export default class Demo extends React.Component {
   //keep ticking the timer down one
   tick = () => {
     if (this.state.counter == 0) {
-      return this.timeUp();
+      return this.revealStats();
     }
     this.setState({
       counter: this.state.counter - 1
@@ -221,7 +267,7 @@ export default class Demo extends React.Component {
     let score = this.state.playerScore;
     let container = this.state.gameContainer.length;
     let grade = score / container;
-    if (grade <= 15) {
+    if (grade <= 5) {
       this.setState({
         grade: 'F',
         message:
@@ -229,27 +275,27 @@ export default class Demo extends React.Component {
         resultGif:
           'https://uproxx.files.wordpress.com/2014/11/buttfumble-2.gif?w=650'
       });
-    } else if (grade > 15 && grade < 20) {
+    } else if (grade > 5 && grade <= 12) {
       this.setState({
         grade: 'C',
         message:
           "Really below average. Hope that doesn't translate to your personal life.",
         resultGif: 'https://i.gifer.com/1DMt.gif'
       });
-    } else if (grade > 20 && grade <= 25) {
+    } else if (grade > 12 && grade <= 16) {
       this.setState({
         grade: 'C+',
         message: 'You really dropped the ball on this one. Get it together!!',
         resultGif: 'https://media.giphy.com/media/3o7WIPe6fIhuQ4UKyc/giphy.gif'
       });
-    } else if (grade > 25 && grade <= 30) {
+    } else if (grade > 16 && grade <= 21) {
       this.setState({
         grade: 'B-',
         message:
           "This isn't the worst result I've ever seen. It's not very good either",
         resultGif: 'https://i.imgur.com/KueuxdZ.gif'
       });
-    } else if (grade > 30 && grade <= 35) {
+    } else if (grade > 21 && grade <= 28) {
       this.setState({
         grade: 'B',
         message:
@@ -257,7 +303,7 @@ export default class Demo extends React.Component {
         resultGif:
           'https://uproxx.files.wordpress.com/2015/09/brownsfumble1.gif?w=650&h=366'
       });
-    } else if (grade > 35 && grade <= 40) {
+    } else if (grade > 28 && grade <= 32) {
       this.setState({
         grade: 'B+',
         message:
@@ -265,7 +311,7 @@ export default class Demo extends React.Component {
         resultGif:
           'https://s-media-cache-ak0.pinimg.com/originals/da/fb/37/dafb37eda8b99019fb2302c64488f703.gif'
       });
-    } else if (grade > 40 && grade <= 45) {
+    } else if (grade > 32 && grade <= 38) {
       this.setState({
         grade: 'A',
         message:
@@ -273,7 +319,7 @@ export default class Demo extends React.Component {
         resultGif:
           'https://thecrossoverreport.files.wordpress.com/2017/06/gronkdance2_original_original.gif'
       });
-    } else if (grade > 45 && grade <= 50) {
+    } else if (grade > 38 && grade <= 50) {
       this.setState({
         grade: 'A+',
         message:
@@ -283,46 +329,8 @@ export default class Demo extends React.Component {
     }
   };
 
-  //handles moving on to the next question once the timer runs out
-  timeUp = () => {
-    let gameIndex = Number(this.state.gameIndex);
-    gameIndex++;
-    console.log(gameIndex);
-    console.log(this.state.gameContainer.length);
-    let score = 0;
-    for (let i = 0; i < this.state.displayPlayers.length; i++) {
-      if (this.state.displayPlayers[this.state.order[i]].rank == i) {
-        score += 10;
-      }
-    }
-    if (gameIndex == this.state.gameContainer.length) {
-      this.setState({
-        gameOver: true,
-        playerScore: (this.state.playerScore += score)
-      });
-      this.checkScore();
-      window.clearInterval(this.state.timer);
-      return;
-    }
-    console.log(score);
-    this.setState(
-      {
-        loading: true,
-        message: 'you lost',
-        gameIndex: gameIndex,
-        counter: 15,
-        playerScore: (this.state.playerScore += score)
-      },
-      function() {
-        setTimeout(() => {
-          this.qbGame();
-        }, 1000);
-      }
-    );
-  };
-
   //checks user answers vs the correct answers
-  isCorrect = newOrder => {
+  /*isCorrect = newOrder => {
     let score = 0;
     for (let i = 0; i < newOrder.length; i++) {
       if (this.state.displayPlayers[newOrder[i]].rank !== i) {
@@ -339,14 +347,22 @@ export default class Demo extends React.Component {
         message: 'you are a winner',
         counter: 15,
         playerScore: (this.state.playerScore += score)
-      },
-      function() {
-        setTimeout(() => {
-          this.qbGame();
-        }, 1000);
-      }
-    );
-  };
+      });
+  };*/
+
+  /*function() {
+    setTimeout(() => {
+      this.qbGame();
+    }, 1000);
+  }
+
+  function() {
+    setTimeout(() => {
+      this.setState({
+        order: shuffle(this.state.order)
+      });
+    }, 0);
+  }*/
 
   render() {
     const { mouseY, isPressed, originalPosOfLastPressed, order } = this.state;
@@ -369,6 +385,10 @@ export default class Demo extends React.Component {
       return (
         <div className="resultsPage">
           <h1 className="intro"> Your Grade </h1>
+          <h3 className="resultMessage">
+            You got {this.state.playerScore / 10} out of{' '}
+            {this.state.gameContainer.length * 5} right
+          </h3>
           <div className="finalGrade"> {this.state.grade} </div>
           <h3 className="resultMessage"> {this.state.message} </h3>
           <img className="resultGif" src={this.state.resultGif} />
@@ -383,7 +403,12 @@ export default class Demo extends React.Component {
 
     return (
       <div id="test" className="demo8">
-        <Timer className={this.state.gameName ? 'digitalClock' : 'inactive '}>
+        <Timer
+          className={
+            this.state.gameName || !this.state.loading
+              ? 'digitalClock'
+              : 'inactive '
+          }>
           {this.state.counter}
         </Timer>
         <div className={this.state.gameName == null ? 'active' : 'inactive'}>
@@ -447,7 +472,10 @@ export default class Demo extends React.Component {
           </label>
         </div>
 
-        <h1 className={this.state.loading ? 'inactive' : 'questionHeader'}>
+        <h1
+          className={
+            this.state.loading ? 'inactive' : 'questionHeader animate-flicker'
+          }>
           {this.state.question}{' '}
         </h1>
 
@@ -491,10 +519,17 @@ export default class Demo extends React.Component {
                         WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
                         zIndex: i === originalPosOfLastPressed ? 99 : i
                       }}>
-                      {order.indexOf(i) == player.rank
-                        ? null
-                        : (complete = false)}
-                      <h2 className="playerNames">{player.displayName}</h2>
+                      <h2 className="playerNames">{player.displayName} </h2>
+                      <h2
+                        className={
+                          order.indexOf(i) == player.rank
+                            ? 'correctStat alignRight'
+                            : 'wrongStat alignRight'
+                        }>
+                        {this.state.showStats == true
+                          ? player.stat + ' ' + this.state.gameType
+                          : ''}
+                      </h2>
                     </div>
                   )}
                 </StyleMotion>
