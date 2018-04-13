@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import range from 'lodash.range';
 import './draggable.css';
 import './slider.css';
+import './animation.css';
 import { playersQB } from './playerLists/playerListQB';
 import { playersRB } from './playerLists/playerListRB';
 import { playersWR } from './playerLists/playerListWR';
@@ -181,7 +182,7 @@ export default class Demo extends React.Component {
       question: gameContainer[index].question,
       displayPlayers: sortedPlayers,
       loading: false,
-      counter: 15,
+      counter: 3,
       showStats: false
     });
   };
@@ -219,7 +220,7 @@ export default class Demo extends React.Component {
         setTimeout(() => {
           this.qbGame();
           this.setState({ timer });
-        }, 1500);
+        }, 1000);
       }
     );
   };
@@ -235,7 +236,7 @@ export default class Demo extends React.Component {
       function() {
         setTimeout(() => {
           this.timeUp();
-        }, 2000);
+        }, 1800);
       }
     );
   };
@@ -383,7 +384,7 @@ export default class Demo extends React.Component {
 
     if (this.state.gameOver) {
       return (
-        <div className="resultsPage">
+        <div className="resultsPage" id="slide">
           <h1 className="intro"> Your Grade </h1>
           <h3 className="resultMessage">
             You got {this.state.playerScore / 10} out of{' '}
@@ -402,7 +403,7 @@ export default class Demo extends React.Component {
     }
 
     return (
-      <div id="test" className="demo8">
+      <div id="test" className={this.state.showStats ? 'fade demo8' : 'demo8'}>
         <Timer
           className={
             this.state.gameName || !this.state.loading
@@ -472,10 +473,7 @@ export default class Demo extends React.Component {
           </label>
         </div>
 
-        <h1
-          className={
-            this.state.loading ? 'inactive' : 'questionHeader animate-flicker'
-          }>
+        <h1 className={this.state.loading ? 'inactive' : 'questionHeader'}>
           {this.state.question}{' '}
         </h1>
 
@@ -503,10 +501,10 @@ export default class Demo extends React.Component {
                       onTouchStart={this.handleTouchStart.bind(null, i, y)}
                       className={
                         this.state.difficulty == 'Hard'
-                          ? 'demo8-item'
+                          ? 'demo8-item listAnimation'
                           : order.indexOf(i) == player.rank
-                            ? 'correct demo8-item '
-                            : 'incorrect demo8-item'
+                            ? 'correct demo8-item listAnimation'
+                            : 'incorrect demo8-item listAnimation'
                       }
                       style={{
                         background: `url(${player.img}) no-repeat `,
@@ -529,6 +527,17 @@ export default class Demo extends React.Component {
                         {this.state.showStats == true
                           ? player.stat + ' ' + this.state.gameType
                           : ''}
+                      </h2>
+                      <h2
+                        className={
+                          !this.state.showStats
+                            ? 'inactive'
+                            : order.indexOf(i) == player.rank
+                              ? 'scoreAnimate'
+                              : 'inactive'
+                        }>
+                        {' '}
+                        +10{' '}
                       </h2>
                     </div>
                   )}

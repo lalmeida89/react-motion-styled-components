@@ -131,6 +131,10 @@ html {
   font-family: sans-serif;
   font-size: 22px;
   color: white;
+  /*-webkit-animation: flickerAnimation 1s ease reverse forwards;
+  -moz-animation: flickerAnimation 1s ease reverse forwards;
+  -o-animation: flickerAnimation 1s linear;
+  animation: flickerAnimation 1s ease reverse forwards;*/
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
@@ -156,7 +160,7 @@ html {
 
 .playerNames {
   float: left;
-  font-size: 3vw;
+  font-size: 15px;
   /*font-family: 'Reem Kufi', sans-serif;*/
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
@@ -165,7 +169,7 @@ html {
 
 .alignRight {
   float: right;
-  font-size: 2.5vw;
+  font-size: 15px;
   /*font-family: 'Reem Kufi', sans-serif;*/
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
@@ -187,53 +191,6 @@ html {
   color: red;
 }
 
-@keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-o-keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.animate-flicker {
-  -webkit-animation: flickerAnimation 1s ease reverse forwards;
-  -moz-animation: flickerAnimation 1s ease reverse forwards;
-  -o-animation: flickerAnimation 1s linear;
-  animation: flickerAnimation 1s ease reverse forwards;
+.wrong {
+  background-color: red;
 }
