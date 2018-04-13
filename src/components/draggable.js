@@ -385,7 +385,7 @@ export default class Demo extends React.Component {
     if (this.state.gameOver) {
       return (
         <div className="resultsPage" id="slide">
-          <h1 className="intro"> Your Grade </h1>
+          <h1 className="gradeHeader"> Your Grade </h1>
           <h3 className="resultMessage">
             You got {this.state.playerScore / 10} out of{' '}
             {this.state.gameContainer.length * 5} right

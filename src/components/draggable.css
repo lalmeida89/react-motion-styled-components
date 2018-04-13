@@ -139,7 +139,8 @@ html {
     1px 1px 0 #000;
 }
 
-.intro {
+.intro,
+.gradeHeader {
   color: #3a3636;
   font-size: 24px;
 }
@@ -193,4 +194,16 @@ html {
 
 .wrong {
   background-color: red;
+}
+
+@media screen and (max-width: 400px) {
+  .digitalClock {
+    position: relative;
+    float: left;
+  }
+
+  .intro,
+  .loading {
+    text-align: -webkit-auto;
+  }
 }
