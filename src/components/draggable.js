@@ -181,7 +181,7 @@ export default class Demo extends React.Component {
       question: gameContainer[index].question,
       displayPlayers: sortedPlayers,
       loading: false,
-      counter: 2,
+      counter: 16,
       showStats: false
     });
   };
