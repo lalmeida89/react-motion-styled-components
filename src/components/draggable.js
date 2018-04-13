@@ -169,7 +169,6 @@ export default class Demo extends React.Component {
   //based on each players value. the setTimeout shuffles up the playerList the seconds
   //the players are loaded to give a little animation.
   qbGame = () => {
-    console.log(this.state.showStats);
     let index = this.state.gameIndex;
     let gameContainer = this.state.gameContainer;
     let sortedPlayers = sortByKey(gameContainer[index].players);
@@ -191,7 +190,6 @@ export default class Demo extends React.Component {
   timeUp = () => {
     let gameIndex = Number(this.state.gameIndex);
     let timer = setInterval(this.tick, 1000);
-    console.log(gameIndex);
     gameIndex++;
     let score = 0;
     for (let i = 0; i < this.state.displayPlayers.length; i++) {
@@ -329,41 +327,6 @@ export default class Demo extends React.Component {
       });
     }
   };
-
-  //checks user answers vs the correct answers
-  /*isCorrect = newOrder => {
-    let score = 0;
-    for (let i = 0; i < newOrder.length; i++) {
-      if (this.state.displayPlayers[newOrder[i]].rank !== i) {
-        return;
-      }
-      score += 10;
-    }
-    let gameIndex = Number(this.state.gameIndex);
-    gameIndex++;
-    this.setState(
-      {
-        gameIndex: gameIndex,
-        loading: true,
-        message: 'you are a winner',
-        counter: 15,
-        playerScore: (this.state.playerScore += score)
-      });
-  };*/
-
-  /*function() {
-    setTimeout(() => {
-      this.qbGame();
-    }, 1000);
-  }
-
-  function() {
-    setTimeout(() => {
-      this.setState({
-        order: shuffle(this.state.order)
-      });
-    }, 0);
-  }*/
 
   render() {
     const { mouseY, isPressed, originalPosOfLastPressed, order } = this.state;
