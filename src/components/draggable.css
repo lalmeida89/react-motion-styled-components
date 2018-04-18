@@ -196,6 +196,11 @@ html {
   background-color: red;
 }
 
+.header {
+  color: white;
+  font-style: italic;
+}
+
 @media screen and (max-width: 400px) {
   .digitalClock {
     position: relative;

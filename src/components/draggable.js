@@ -1,5 +1,5 @@
 import React from 'react';
-import { Motion, spring } from 'react-motion';
+import { spring } from 'react-motion';
 import 'font-awesome/css/font-awesome.min.css';
 import range from 'lodash.range';
 import './draggable.css';
@@ -12,7 +12,6 @@ import { playersTE } from './playerLists/playerListTE';
 import { Button } from './styleComponents/button';
 import { Rotate } from './styleComponents/loading';
 import { Timer } from './styleComponents/timerStyle';
-import { QuestionHeader } from './styleComponents/questionHeader';
 import { StyleMotion } from './styleComponents/styleMotion';
 
 function reinsert(arr, from, to) {
@@ -22,10 +21,6 @@ function reinsert(arr, from, to) {
   _arr.splice(to, 0, val);
   return _arr;
 }
-
-const divStyle = {
-  fontSize: '10px'
-};
 
 //sorts order of key values from highest to lowest
 function sortByKey(array, key) {
@@ -181,7 +176,7 @@ export default class Demo extends React.Component {
       question: gameContainer[index].question,
       displayPlayers: sortedPlayers,
       loading: false,
-      counter: 16,
+      counter: 5,
       showStats: false
     });
   };
@@ -193,11 +188,11 @@ export default class Demo extends React.Component {
     gameIndex++;
     let score = 0;
     for (let i = 0; i < this.state.displayPlayers.length; i++) {
-      if (this.state.displayPlayers[this.state.order[i]].rank == i) {
+      if (this.state.displayPlayers[this.state.order[i]].rank === i) {
         score += 10;
       }
     }
-    if (gameIndex == this.state.gameContainer.length) {
+    if (gameIndex === this.state.gameContainer.length) {
       this.setState({
         gameOver: true,
         playerScore: (this.state.playerScore += score)
@@ -234,7 +229,7 @@ export default class Demo extends React.Component {
       function() {
         setTimeout(() => {
           this.timeUp();
-        }, 1800);
+        }, 3000);
       }
     );
   };
@@ -242,7 +237,7 @@ export default class Demo extends React.Component {
   //handles the ticks of the timer. once it hits 0, run the timeUp function, otherwise
   //keep ticking the timer down one
   tick = () => {
-    if (this.state.counter == 0) {
+    if (this.state.counter === 0) {
       return this.revealStats();
     }
     this.setState({
@@ -251,7 +246,7 @@ export default class Demo extends React.Component {
   };
 
   setDifficulty = () => {
-    if (this.state.difficulty == 'Hard') {
+    if (this.state.difficulty === 'Hard') {
       this.setState({
         difficulty: 'Easy'
       });
@@ -330,7 +325,6 @@ export default class Demo extends React.Component {
 
   render() {
     const { mouseY, isPressed, originalPosOfLastPressed, order } = this.state;
-    let complete = true;
 
     const loading = (
       <div className="loading">
@@ -340,6 +334,7 @@ export default class Demo extends React.Component {
           <img
             style={{ width: '100px' }}
             src="https://cdn.bleacherreport.net/images/team_logos/328x328/football.png"
+            alt="spinning football"
           />
         </Rotate>
       </div>
@@ -355,7 +350,11 @@ export default class Demo extends React.Component {
           </h3>
           <div className="finalGrade"> {this.state.grade} </div>
           <h3 className="resultMessage"> {this.state.message} </h3>
-          <img className="resultGif" src={this.state.resultGif} />
+          <img
+            className="resultGif"
+            src={this.state.resultGif}
+            alt="resultGif"
+          />
 
           <Button reload onClick={() => window.location.reload()}>
             {' '}
@@ -387,7 +386,7 @@ export default class Demo extends React.Component {
           <Button
             qb
             className={
-              this.state.gameName == 'playersQB' ? 'active' : 'inactive'
+              this.state.gameName === 'playersQB' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersQB, 'playersQB')}>
             {' '}
@@ -397,7 +396,7 @@ export default class Demo extends React.Component {
           <Button
             wr
             className={
-              this.state.gameName == 'playersWR' ? 'active' : 'inactive'
+              this.state.gameName === 'playersWR' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersWR, 'playersWR')}>
             {' '}
@@ -407,7 +406,7 @@ export default class Demo extends React.Component {
           <Button
             rb
             className={
-              this.state.gameName == 'playersRB' ? 'active' : 'inactive'
+              this.state.gameName === 'playersRB' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersRB, 'playersRB')}>
             {' '}
@@ -417,7 +416,7 @@ export default class Demo extends React.Component {
           <Button
             te
             className={
-              this.state.gameName == 'playersTE' ? 'active' : 'inactive'
+              this.state.gameName === 'playersTE' ? 'active' : 'inactive'
             }
             onClick={() => this.setGame(playersTE, 'playersTE')}>
             {' '}
@@ -463,9 +462,9 @@ export default class Demo extends React.Component {
                       onMouseDown={this.handleMouseDown.bind(null, i, y)}
                       onTouchStart={this.handleTouchStart.bind(null, i, y)}
                       className={
-                        this.state.difficulty == 'Hard'
+                        this.state.difficulty === 'Hard'
                           ? 'demo8-item listAnimation'
-                          : order.indexOf(i) == player.rank
+                          : order.indexOf(i) === player.rank
                             ? 'correct demo8-item listAnimation'
                             : 'incorrect demo8-item listAnimation'
                       }
@@ -483,11 +482,11 @@ export default class Demo extends React.Component {
                       <h2 className="playerNames">{player.displayName} </h2>
                       <h2
                         className={
-                          order.indexOf(i) == player.rank
+                          order.indexOf(i) === player.rank
                             ? 'correctStat alignRight'
                             : 'wrongStat alignRight'
                         }>
-                        {this.state.showStats == true
+                        {this.state.showStats === true
                           ? player.stat + ' ' + this.state.gameType
                           : ''}
                       </h2>
@@ -495,13 +494,13 @@ export default class Demo extends React.Component {
                         className={
                           !this.state.showStats
                             ? 'inactive'
-                            : order.indexOf(i) == player.rank
+                            : order.indexOf(i) === player.rank
                               ? 'scoreAnimate'
                               : 'wrong'
                         }>
                         {' '}
                         +
-                        {order.indexOf(i) == player.rank ? 10 : 0}{' '}
+                        {order.indexOf(i) === player.rank ? 10 : 0}{' '}
                       </h2>
                     </div>
                   )}

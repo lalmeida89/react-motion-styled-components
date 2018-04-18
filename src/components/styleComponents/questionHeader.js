@@ -1,5 +1,4 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const QuestionHeader = styled.h1`
   color: grey;

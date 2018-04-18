@@ -1,6 +1,5 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { Motion, spring } from 'react-motion';
+import styled from 'styled-components';
+import { Motion } from 'react-motion';
 
 export const StyleMotion = styled(Motion)`
   &&& {
