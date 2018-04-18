@@ -176,7 +176,7 @@ export default class Demo extends React.Component {
       question: gameContainer[index].question,
       displayPlayers: sortedPlayers,
       loading: false,
-      counter: 5,
+      counter: 16,
       showStats: false
     });
   };
@@ -366,6 +366,7 @@ export default class Demo extends React.Component {
 
     return (
       <div id="test" className={this.state.showStats ? 'fade demo8' : 'demo8'}>
+        <h1 className="header"> FFR 2017 </h1>
         <Timer
           className={
             this.state.gameName || !this.state.loading
@@ -374,8 +375,11 @@ export default class Demo extends React.Component {
           }>
           {this.state.counter}
         </Timer>
-        <div className={this.state.gameName == null ? 'active' : 'inactive'}>
-          <h1 className="intro">Fantasy Ranks 2017</h1>
+        <div
+          className={
+            this.state.gameName == null ? 'active questions' : 'inactive'
+          }>
+          <h1 className="intro">Fantasy Football Ranks 2017</h1>
           <h3 className="gameDescription">
             {' '}
             Time to see how well you did in your league last year. To start the

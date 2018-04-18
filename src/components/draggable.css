@@ -197,8 +197,20 @@ html {
 }
 
 .header {
-  color: white;
+  color: #ff0000;
+  font-weight: 100;
   font-style: italic;
+  font-weight: bold;
+  margin-bottom: -5px;
+  margin-top: 2px;
+  font-family: 'Orbitron';
+  font-size: 26px;
+  background-color: #cccdd6c2;
+  border-radius: 5px;
+}
+
+.questions {
+  margin-top: -20px;
 }
 
 @media screen and (max-width: 400px) {
@@ -207,8 +219,8 @@ html {
     float: left;
   }
 
-  .intro,
   .loading {
     text-align: -webkit-auto;
+    margin: auto;
   }
 }
