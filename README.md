@@ -11,8 +11,8 @@ Time to see how well you did in your Fantasy League last year. Head over to [FFR
 
 2.  Select the position you think you know best.
 
-![intro-page](/images/intro-slide.png)
+![intro-page](/public/images/intro-slide.png)
 
 3.  Once the game starts, you will have 16 seconds to rearrange players based on the question
 
-1[game-slide](/images/game-slide.png)
+![game-slide](public/images/game-slide.png)
