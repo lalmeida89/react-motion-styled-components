@@ -382,10 +382,11 @@ export default class Demo extends React.Component {
           <h1 className="intro">Fantasy Football Ranks 2017</h1>
           <h3 className="gameDescription">
             {' '}
-            Time to see how well you did in your league last year. To start the
-            game, select the category you think you know best. Once the game
-            starts, simply drag and drog the players and rearrange them in order
-            of the question asked. Simple as that. Now get started!{' '}
+            Your obssession over Football stats and Fantasy Football are about
+            to be put to the test. Begin by selecting your difficulty: Easy
+            gives you hints, Hard is almost impossible. Once the game starts,
+            simply drag and drop the players and rearrange them in order of the
+            question asked. Simple as that. Now get started!{' '}
           </h3>
           <Button
             qb

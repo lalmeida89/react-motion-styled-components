@@ -2,7 +2,7 @@
 
 ## Summary
 
-Time to see how well you did in your Fantasy League last year. Head over to [FFR2017](http://sharp-nightingale-21d173.netlify.com/) to play now.
+Time to test your Football stats and Fantasy Football obsession. This ridiculously challenging App is now live at [FFR2017](http://sharp-nightingale-21d173.netlify.com/) .
 
 ### To get started, select your difficulty:
 

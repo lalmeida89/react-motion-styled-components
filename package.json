@@ -34,7 +34,7 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged"
   },
-  "homepage": "https://cra-redux-router-thunk.herokuapp.com",
+  "homepage": "http://sharp-nightingale-21d173.netlify.com/",
   "lint-staged": {
     "*.{js,json,css,md}": ["prettier --write", "git add"]
   }
