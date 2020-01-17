@@ -18,7 +18,7 @@ export const playersWR = [
         displayName: 'AJ Green',
         stat: 144,
         img:
-          'https://www.gannett-cdn.com/-mm-/5cb91c9847e78e332b6b2966e16901673f0f1c0e/c=200-0-2516-1741&r=x404&c=534x401/local/-/media/2015/09/08/Cincinnati/Cincinnati/635773255887170510-081415-BENGALS-GIANTS-0161.jpg'
+          'https://usatbengalswire.files.wordpress.com/2019/03/usatsi_11553607.jpg?w=450&h=400'
       },
       {
         displayName: 'Adam Thielen',
@@ -160,13 +160,13 @@ export const playersWR = [
         displayName: 'AJ Green',
         stat: 8,
         img:
-          'https://www.gannett-cdn.com/-mm-/5cb91c9847e78e332b6b2966e16901673f0f1c0e/c=200-0-2516-1741&r=x404&c=534x401/local/-/media/2015/09/08/Cincinnati/Cincinnati/635773255887170510-081415-BENGALS-GIANTS-0161.jpg'
+          'https://usatbengalswire.files.wordpress.com/2019/03/usatsi_11553607.jpg?w=450&h=400'
       },
       {
         displayName: 'Brandin Cooks',
         stat: 7,
         img:
-          'https://nesncom.files.wordpress.com/2017/11/brandin-cooks.jpg?w=640'
+          'https://usatramswire.files.wordpress.com/2018/09/gettyimages-1042111062.jpg?w=500&h=400'
       },
       {
         displayName: 'Keenan Allen',
@@ -209,7 +209,7 @@ export const playersWR = [
         displayName: 'Amari Cooper',
         stat: 102,
         img:
-          'http://www.raiders.com/assets/images/imported/OAK/photos/centerpiece/2016/11-November/112216-cooper-cp.jpg'
+          'https://www.nbcsports.com/bayarea/sites/csnbayarea/files/styles/article_hero_image/public/2018/12/13/amaricoopercelebratingusatsi.jpg?itok=BiEdT0mS'
       },
       {
         displayName: 'Chris Hogan',

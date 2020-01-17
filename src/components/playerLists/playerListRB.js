@@ -12,7 +12,7 @@ export const playersRB = [
         displayName: 'Jordan Howard',
         stat: 4.07,
         img:
-          'https://cbschicago.files.wordpress.com/2016/10/gettyimages-613698712-e1476123446236.jpg?w=640&h=360&crop=1'
+          'https://images2.minutemediacdn.com/image/upload/c_fill,w_688,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/Dallas-Cowboys-v-Philadelphia-Eagles-31d3df9b985239b6c3bcce4831c3682f.jpg'
       },
       {
         displayName: 'Ezekiel Elliot',
@@ -55,7 +55,7 @@ export const playersRB = [
         displayName: 'Lamar Miller',
         stat: 888,
         img:
-          'https://nesncom.files.wordpress.com/2016/09/lamar-miller.jpg?w=640'
+          'https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Ffansided.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2018%2F02%2F901960352-houston-texans-v-indianapolis-colts.jpg.jpg&c=sc&w=536&h=405'
       },
       {
         displayName: 'Devonta Freeman',
@@ -67,7 +67,7 @@ export const playersRB = [
         displayName: 'Alvin Kamara',
         stat: 728,
         img:
-          'http://image.nola.com/home/nola-media/width600/img/saints_impact/photo/kamara-10-yd-catch-panthers-at-saints-2018-wild-card-de743929ad73b6b2.jpg'
+          'https://img.bleacherreport.net/img/images/photos/003/833/296/hi-res-a90e77d1ca17509fed1499224400c2f0_crop_north.jpg?h=400&w=600&q=70'
       }
     ],
     question: 'Most rushing yards?'
@@ -115,7 +115,7 @@ export const playersRB = [
         displayName: 'Jordan Howard',
         stat: 9,
         img:
-          'https://cbschicago.files.wordpress.com/2016/10/gettyimages-613698712-e1476123446236.jpg?w=640&h=360&crop=1'
+          'https://images2.minutemediacdn.com/image/upload/c_fill,w_688,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/Dallas-Cowboys-v-Philadelphia-Eagles-31d3df9b985239b6c3bcce4831c3682f.jpg'
       },
       {
         displayName: 'Kareem Hunt',
@@ -139,7 +139,7 @@ export const playersRB = [
         displayName: 'Bilal Powell',
         stat: 5,
         img:
-          'https://i1.wp.com/turnonthejets.com/wp-content/uploads/2016/07/Screen-Shot-2016-07-21-at-4.28.12-PM.png?fit=624%2C439'
+          'https://img.bleacherreport.net/img/images/photos/003/841/611/hi-res-d851ee1578500bbe1f41612b58fc56a6_crop_north.jpg?h=403&w=600&q=70'
       }
     ],
     question: 'Most rushing touchdowns?'
@@ -170,7 +170,7 @@ export const playersRB = [
         displayName: 'Chris Thompson',
         stat: 510,
         img:
-          'http://www.redskins.com/assets/images/imported/WAS/centerpieces/2017-Centerpieces/Games/P2-Packers/Chris-Thompson-packers-2017-660-350.jpg'
+          'https://ontaponline.com/wp-content/uploads/2017/11/Chris-Thompson.jpg'
       },
       {
         displayName: 'Melvin Gordon',
@@ -200,7 +200,7 @@ export const playersRB = [
         displayName: 'Lamar Miller',
         stat: 145,
         img:
-          'https://nesncom.files.wordpress.com/2016/09/lamar-miller.jpg?w=640'
+          'https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Ffansided.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2018%2F02%2F901960352-houston-texans-v-indianapolis-colts.jpg.jpg&c=sc&w=536&h=405'
       },
       {
         displayName: 'Tevin Coleman',
@@ -212,7 +212,7 @@ export const playersRB = [
         displayName: 'Derrick Henry',
         stat: 142,
         img:
-          'http://www.titansonline.com/assets/images/imported/TEN/henry600-011018b.jpg'
+          'https://nbcprofootballtalk.files.wordpress.com/2020/01/gettyimages-1191069380-1-e1578065018898.jpg?w=560&h=316'
       }
     ],
     question: 'Most Fantasy points'

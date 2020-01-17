@@ -42,7 +42,7 @@ export const Button = styled.button`
   ${props =>
     props.te &&
     css`
-      background: url(https://www.cheatsheet.com/wp-content/uploads/2016/06/Ladarius-Green_Harry-How_Getty-Images-640x489.jpg?x23912);
+      background: url(https://www.ocregister.com/wp-content/uploads/2019/01/CHARGERS_HENRY_FOOTBALL_28010459-1.jpg?w=523);
       background-size: cover;
     `};
 

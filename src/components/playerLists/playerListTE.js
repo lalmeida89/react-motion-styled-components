@@ -28,7 +28,7 @@ export const playersTE = [
         displayName: 'Eric Ebron',
         stat: 53,
         img:
-          'http://www.colts.com/assets/images/imported/IND/article-images/2018/misc/122417_lions-bengals-ebron-td-ap_622.jpg'
+          'https://img.bleacherreport.net/img/images/photos/003/776/074/hi-res-5cb7bfbaeff3783dc3d9b3fa68b9ea0f_crop_north.jpg?h=303&w=500&q=70'
       }
     ],
     question: 'Most receptions'
@@ -41,7 +41,7 @@ export const playersTE = [
         displayName: 'Jared Cook',
         stat: 12.74,
         img:
-          'http://prod.static.raiders.clubs.nfl.com//assets/images/imported/OAK/photos/centerpiece/2017/12-December/120817-cook-cp.jpg'
+          'https://images2.minutemediacdn.com/image/upload/c_fill,w_688,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/Minnesota-Vikings-v-New-Orleans-Saints-864b11fb46d83826a76fd6e2a00792a9.jpg'
       },
       {
         displayName: 'George Kittle',
@@ -83,7 +83,7 @@ export const playersTE = [
         displayName: 'Tyler Kroft',
         stat: 7,
         img:
-          'http://image.sportsworldreport.com/data/images/full/53011/tyler-eifert.jpg'
+          'https://img.bleacherreport.net/img/images/photos/003/809/634/hi-res-5e5d986841a257d0a2811a416719153d_crop_north.jpg?h=333&w=550&q=70'
       },
       {
         displayName: 'Cameron Brate',
@@ -124,7 +124,7 @@ export const playersTE = [
         displayName: 'Jared Cook',
         stat: 688,
         img:
-          'http://www.raiders.com/assets/images/imported/OAK/photos/centerpiece/2017/10-October/101917-cook-cp.jpg'
+          'https://images2.minutemediacdn.com/image/upload/c_fill,w_688,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/Minnesota-Vikings-v-New-Orleans-Saints-864b11fb46d83826a76fd6e2a00792a9.jpg'
       },
       {
         displayName: 'Cameron Brate',
@@ -167,7 +167,7 @@ export const playersTE = [
         displayName: 'Eric Ebron',
         stat: 69,
         img:
-          'http://www.colts.com/assets/images/imported/IND/article-images/2018/misc/122417_lions-bengals-ebron-td-ap_622.jpg'
+          'https://img.bleacherreport.net/img/images/photos/003/776/074/hi-res-5cb7bfbaeff3783dc3d9b3fa68b9ea0f_crop_north.jpg?h=303&w=500&q=70'
       },
       {
         displayName: 'Charles Clay',

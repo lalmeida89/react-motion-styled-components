@@ -176,7 +176,7 @@ export default class Demo extends React.Component {
       question: gameContainer[index].question,
       displayPlayers: sortedPlayers,
       loading: false,
-      counter: 16,
+      counter: 3,
       showStats: false
     });
   };
@@ -267,7 +267,7 @@ export default class Demo extends React.Component {
         message:
           "You probably came last in your league. Hope the punishment wasn't too bad.",
         resultGif:
-          'https://uproxx.files.wordpress.com/2014/11/buttfumble-2.gif?w=650'
+          'https://media3.giphy.com/media/hqIIJFt16c7u0/giphy.gif'
       });
     } else if (grade > 5 && grade <= 12) {
       this.setState({
@@ -295,7 +295,7 @@ export default class Demo extends React.Component {
         message:
           "Not too shabby, my friend. Give it another shot, maybe it won't be so mediocre",
         resultGif:
-          'https://uproxx.files.wordpress.com/2015/09/brownsfumble1.gif?w=650&h=366'
+          'https://media0.giphy.com/media/81GEmqLoqe1gI/giphy.gif'
       });
     } else if (grade > 28 && grade <= 32) {
       this.setState({

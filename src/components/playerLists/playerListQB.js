@@ -67,7 +67,7 @@ export const playersQB = [
         displayName: 'Cam Newton',
         stat: 5.42,
         img:
-          'http://www.panthers.com/assets/images/imported/CAR/photos/2017/12-December/180103_cam_inside.jpg?w=690&h=300&crop=1'
+          'https://api.time.com/wp-content/uploads/2016/01/quarterback-cam-newton-in-the-super-bowl.jpg?w=500&quality=85'
       }
     ],
     question: 'Most yards per carry'
@@ -116,7 +116,7 @@ export const playersQB = [
         displayName: 'Cam Newton',
         stat: 16,
         img:
-          'http://www.panthers.com/assets/images/imported/CAR/photos/2017/12-December/180103_cam_inside.jpg'
+          'https://api.time.com/wp-content/uploads/2016/01/quarterback-cam-newton-in-the-super-bowl.jpg?w=500&quality=85'
       },
       {
         displayName: 'Ben Roethlisberger',
@@ -128,7 +128,7 @@ export const playersQB = [
         displayName: 'Blake Bortles',
         stat: 13,
         img:
-          'http://www.jaguars.com/assets/images/imported/JAX/photos/2017-Centerpieces/12-Dec/20171217-gtw.jpg?resize=805,402'
+          'https://usatftw.files.wordpress.com/2017/12/usatsi_10484171.jpg?w=400&h=300'
       },
       {
         displayName: 'Matt Ryan',
@@ -158,25 +158,25 @@ export const playersQB = [
         displayName: 'Blake Bortles',
         stat: 315,
         img:
-          'http://www.jaguars.com/assets/images/imported/JAX/photos/2017-Centerpieces/12-Dec/20171217-gtw.jpg?resize=805,402'
+          'https://usatftw.files.wordpress.com/2017/12/usatsi_10484171.jpg?w=400&h=300'
       },
       {
         displayName: 'Jared Goff',
         stat: 296,
         img:
-          'http://www.therams.com/assets/images/imported/LA/GoffFire.jpg?resize=650,300'
+          'https://usatftw.files.wordpress.com/2018/12/USATSI_11858852.jpg?w=500&h=400'
       },
       {
         displayName: 'Cam Newton',
         stat: 291,
         img:
-          'http://www.panthers.com/assets/images/imported/CAR/photos/2017/12-December/180103_cam_inside.jpg'
+          'https://api.time.com/wp-content/uploads/2016/01/quarterback-cam-newton-in-the-super-bowl.jpg?w=500&quality=85'
       },
       {
         displayName: 'Carson Wentz',
         stat: 265,
         img:
-          'http://assets.nydailynews.com/polopoly_fs/1.3614612.1509983073!/img/httpImage/image.jpg_gen/derivatives/article_750/cardinals-eagles-football.jpg'
+          'https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Finsidetheiggles.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2016%2F04%2F1197724941.jpeg&c=sc&w=606&h=405'
       }
     ],
     question: 'Most completions thrown'
@@ -200,7 +200,7 @@ export const playersQB = [
       {
         displayName: 'Jared Goff',
         stat: 3804,
-        img: 'http://www.therams.com/assets/images/imported/LA/GoffFire.jpg'
+        img: 'https://usatftw.files.wordpress.com/2018/12/USATSI_11858852.jpg?w=500&h=400'
       },
       {
         displayName: 'Jameis Winston',
@@ -237,18 +237,18 @@ export const playersQB = [
         displayName: 'Carson Wentz',
         stat: 342,
         img:
-          'http://assets.nydailynews.com/polopoly_fs/1.3614612.1509983073!/img/httpImage/image.jpg_gen/derivatives/article_750/cardinals-eagles-football.jpg'
+          'https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Finsidetheiggles.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2016%2F04%2F1197724941.jpeg&c=sc&w=606&h=405'
       },
       {
         displayName: 'Blake Bortles',
         stat: 341,
         img:
-          'http://www.jaguars.com/assets/images/imported/JAX/photos/2017-Centerpieces/12-Dec/20171217-gtw.jpg?resize=805,402'
+          'https://usatftw.files.wordpress.com/2017/12/usatsi_10484171.jpg?w=400&h=300'
       },
       {
         displayName: 'Jared Goff',
         stat: 325,
-        img: 'http://www.therams.com/assets/images/imported/LA/GoffFire.jpg'
+        img: 'https://usatftw.files.wordpress.com/2018/12/USATSI_11858852.jpg?w=500&h=400'
       }
     ],
     question: 'Most Fantasy points'
