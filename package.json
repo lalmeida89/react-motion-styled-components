@@ -1,41 +1,23 @@
 {
-  "name": "create-react-app-redux",
-  "version": "0.1.0",
-  "private": true,
+  "name": "Fantasy Football Ranker",
+  "version": "1.0.0",
+  "private": false,
   "devDependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^7.0.0",
-    "prettier": "^1.11.0",
     "react-scripts": "^1.0.17"
   },
   "dependencies": {
-    "fantasy-football-nerd": "^1.0.0",
-    "firebase": "^4.11.0",
     "font-awesome": "^4.7.0",
     "lodash.range": "^3.2.0",
     "react": "^16.2.0",
-    "react-autosuggest": "^9.3.4",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.12.0",
     "react-motion": "^0.5.2",
-    "react-redux": "^5.0.6",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-router-redux": "next",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "sanitize.css": "^5.0.0",
-    "sentiment": "^4.2.0",
     "styled-components": "^3.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "eject": "react-scripts eject"
   },
-  "homepage": "http://sharp-nightingale-21d173.netlify.com/",
-  "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
-  }
+  "homepage": "http://sharp-nightingale-21d173.netlify.com/"
 }
