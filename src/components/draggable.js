@@ -170,7 +170,7 @@ export default class Demo extends React.Component {
     sortedPlayers.forEach((p, i) => {
       p['rank'] = i;
     });
-    let shuffledPlayers = shuffle(gameContainer[index].players);
+    shuffle(gameContainer[index].players);
     this.setState({
       gameType: gameContainer[index].gameType,
       question: gameContainer[index].question,
